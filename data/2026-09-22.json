@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "date_key": "2026-09-22",
+  "page_date": "2026-09-22",
+  "items": [
+    {
+      "category": "sauvegarde",
+      "product": "Veeam Agent for Microsoft Windows",
+      "criticality": "critique",
+      "impact": "Une faille permet à un attaquant ayant déjà un accès local à un poste équipé de l'agent Veeam d'en prendre le contrôle total avec les droits système, et elle est activement exploitée dès aujourd'hui.",
+      "technical_detail": "CVE-2026-32996 (CVSS 7.3) — élévation de privilèges locale dans Veeam Agent for Microsoft Windows ≤13.0.1.2067 (Veeam Backup & Replication ≤13.0.1), via le pipe nommé gRPC du service Endpoint Backup (session ID non lié à l'utilisateur, UID lisible dans un log accessible aux comptes standards). PoC public depuis le 14/09/2026 ; exploitation active confirmée par Arctic Wolf. Corrigé dans Veeam Backup & Replication 13.0.2.29+ (agent build 13.0.3.1220).",
+      "source": "The Hacker News / Arctic Wolf",
+      "date": "22/09/2026",
+      "url": "https://thehackernews.com/2026/09/zyxel-and-veeam-flaws-under-active.html"
+    },
+    {
+      "category": "autres_outils",
+      "product": "NAS Synology (DSM)",
+      "criticality": "critique",
+      "impact": "Plusieurs failles critiques permettent de lire ou modifier des fichiers sur nos NAS Synology sans même avoir de compte ni de mot de passe ; des correctifs sont disponibles depuis le 18 septembre.",
+      "technical_detail": "Synology-SA-26:13 (DSM) — 9 vulnérabilités, dont CVE-2026-13684 (CVSS 9.8, SCGI) et CVE-2026-13639 (CVSS 9.8, logique d'authentification), exploitables sans authentification pour lire/écrire des fichiers arbitraires et provoquer un déni de service. Publié le 18/09/2026. Corrigé dans DSM 7.4-90075+, 7.3.2-86009-4+, 7.2.2-72806-9+, 7.2.1-69057-12+.",
+      "source": "Synology Product Security Advisory",
+      "date": "18/09/2026",
+      "url": "https://www.synology.com/en-global/security/advisory/Synology_SA_26_13"
+    },
+    {
+      "category": "autres_outils",
+      "product": "NAS Synology (DSM)",
+      "criticality": "info",
+      "impact": "Synology a publié les détails techniques complets d'une faille DSM déjà corrigée en avril, sans action supplémentaire nécessaire si les mises à jour ont été appliquées.",
+      "technical_detail": "Synology-SA-26:06 — mise à jour du 21/09/2026 : divulgation des CVE, scores CVSS (max CVE-2026-40530, CVSS 8.0) et classifications CWE, initialement publiée le 15/04/2026 et déjà corrigée (DSM 7.3.2-86009-2+, 7.2.2-72806-7+, 7.2.1-69057-10+).",
+      "source": "Synology Product Security Advisory",
+      "date": "21/09/2026",
+      "url": "https://www.synology.com/en-global/security/advisory/Synology_SA_26_06"
+    }
+  ]
+}

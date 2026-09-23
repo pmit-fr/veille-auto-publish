@@ -2,7 +2,7 @@ name: Veille technologique — publication quotidienne (GitHub Pages)
 
 on:
   schedule:
-    - cron: "35 7 * * *"
+    - cron: "35 7 * * 1-5"
   workflow_dispatch: {}
 
 permissions:

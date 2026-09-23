@@ -161,6 +161,10 @@ MAX_FIELD_LEN = {
 GRAPH_SCOPE = ["https://graph.microsoft.com/.default"]
 
 FR_WEEKDAYS_SHORT = ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"]
+FR_MONTHS = [
+    "janvier", "février", "mars", "avril", "mai", "juin",
+    "juillet", "août", "septembre", "octobre", "novembre", "décembre",
+]
 
 
 def _get_app_only_token() -> str:
@@ -361,44 +365,97 @@ def load_archive(archive_dir: str, d: date) -> dict | None:
     return {"page_date": page_date, "items": items}
 
 
-def available_week_dates(archive_dir: str, today: date) -> list[date]:
-    """Jours (avec archive existante) entre le lundi de la semaine en cours
-    et aujourd'hui inclus, triés du plus ancien au plus récent."""
-    monday = week_monday(today)
+def all_archive_dates(archive_dir: str) -> list[date]:
+    """Tous les jours archivés (data/*.json), triés du plus ancien au plus
+    récent — pas seulement la semaine en cours : l'historique complet est
+    conservé indéfiniment et republié à chaque run."""
+    if not os.path.isdir(archive_dir):
+        return []
     dates = []
-    d = monday
-    while d <= today:
-        if os.path.isfile(_archive_path(archive_dir, d)):
-            dates.append(d)
-        d += timedelta(days=1)
-    return dates
+    for name in os.listdir(archive_dir):
+        if not name.endswith(".json"):
+            continue
+        try:
+            dates.append(date.fromisoformat(name[: -len(".json")]))
+        except ValueError:
+            continue
+    return sorted(dates)
 
 
-def build_sidebar(week_dates: list[date], active_date: date, location: str) -> str:
+def _day_link(d: date, today: date, location: str) -> str:
+    if location == "root":
+        return f"archive/{d.isoformat()}.html"
+    return "../index.html" if d == today else f"{d.isoformat()}.html"
+
+
+def _day_item_html(d: date, active_date: date, today: date, location: str) -> str:
+    is_active = d == active_date
+    is_today = d == today
+    dot = '<span class="day-dot" title="Aujourd’hui"></span>' if is_today and not is_active else ""
+    inner = f'<span class="day-name">{FR_WEEKDAYS_SHORT[d.weekday()]}</span><span class="day-num">{d.day:02d}</span>{dot}'
+    if is_active:
+        return f'<span class="day-item active">{inner}</span>'
+    return f'<a class="day-item" href="{_day_link(d, today, location)}">{inner}</a>'
+
+
+def build_sidebar(all_dates: list[date], today: date, active_date: date, location: str) -> str:
     """location : "root" (page à la racine, index.html) ou "archive"
-    (pages dans public/archive/), pour calculer les bons liens relatifs."""
-    if not week_dates:
+    (pages dans public/archive/), pour calculer les bons liens relatifs.
+
+    all_dates : TOUS les jours archivés (pas seulement la semaine en cours).
+    La semaine en cours reste affichée en clair en haut ; les semaines
+    précédentes sont regroupées par semaine dans des blocs repliés, du plus
+    récent au plus ancien, pour ne pas alourdir la page malgré l'historique
+    qui grandit indéfiniment."""
+    if not all_dates:
         return ""
-    today = max(week_dates)
-    entries = []
-    for d in week_dates:
-        is_active = d == active_date
-        is_today = d == today
-        dot = '<span class="day-dot" title="Aujourd’hui"></span>' if is_today and not is_active else ""
-        inner = f'<span class="day-name">{FR_WEEKDAYS_SHORT[d.weekday()]}</span><span class="day-num">{d.day:02d}</span>{dot}'
-        if is_active:
-            entries.append(f'<span class="day-item active">{inner}</span>')
+    current_monday = week_monday(today)
+    current_week = [d for d in all_dates if week_monday(d) == current_monday]
+    previous = [d for d in all_dates if week_monday(d) != current_monday]
+
+    current_entries = "".join(_day_item_html(d, active_date, today, location) for d in current_week)
+
+    # Regroupe les jours précédents par semaine (lundi de cette semaine-là),
+    # la plus récente en premier.
+    weeks: dict[date, list[date]] = {}
+    for d in previous:
+        weeks.setdefault(week_monday(d), []).append(d)
+
+    week_blocks = []
+    for monday in sorted(weeks.keys(), reverse=True):
+        days = weeks[monday]
+        sunday = monday + timedelta(days=6)
+        if monday.month == sunday.month:
+            label = f"Semaine du {monday.day} au {sunday.day} {FR_MONTHS[monday.month - 1]}"
         else:
-            if location == "root":
-                href = f"archive/{d.isoformat()}.html"
-            else:
-                href = "../index.html" if is_today else f"{d.isoformat()}.html"
-            entries.append(f'<a class="day-item" href="{href}">{inner}</a>')
-    return f'''<aside class="sidebar">
-  <div class="sidebar-label">Cette semaine</div>
-  <nav class="day-list">
-    {"".join(entries)}
+            label = f"Semaine du {monday.day} {FR_MONTHS[monday.month - 1]} au {sunday.day} {FR_MONTHS[sunday.month - 1]}"
+        contains_active = any(d == active_date for d in days)
+        entries = "".join(_day_item_html(d, active_date, today, location) for d in days)
+        open_attr = " open" if contains_active else ""
+        week_blocks.append(f'''<details class="week-group"{open_attr}>
+  <summary>{label}</summary>
+  <nav class="day-list day-list-secondary">
+    {entries}
   </nav>
+</details>''')
+
+    previous_html = (
+        f'''<div class="sidebar-label sidebar-label-secondary">Semaines précédentes</div>
+  <div class="week-groups">
+    {"".join(week_blocks)}
+  </div>'''
+        if week_blocks
+        else ""
+    )
+
+    return f'''<aside class="sidebar">
+  <div class="sidebar-scroll">
+    <div class="sidebar-label">Cette semaine</div>
+    <nav class="day-list">
+      {current_entries}
+    </nav>
+    {previous_html}
+  </div>
 </aside>'''
 
 
@@ -585,7 +642,14 @@ def build_html(page_date: str, items: list[dict], sidebar_html: str) -> str:
   }}
   header.page {{ grid-area: head; margin-bottom: 32px; }}
   .content {{ grid-area: main; }}
-  aside.sidebar {{ grid-area: side; }}
+  aside.sidebar {{ grid-area: side; min-width: 0; }}
+  .sidebar-scroll {{
+    position: sticky;
+    top: 24px;
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+    padding-right: 4px;
+  }}
   .sidebar-label {{
     font-family: "IBM Plex Mono", ui-monospace, monospace;
     font-size: .7rem;
@@ -595,7 +659,8 @@ def build_html(page_date: str, items: list[dict], sidebar_html: str) -> str:
     margin-bottom: 10px;
     padding-left: 10px;
   }}
-  .day-list {{ display: flex; flex-direction: column; gap: 4px; position: sticky; top: 24px; }}
+  .sidebar-label-secondary {{ margin-top: 22px; }}
+  .day-list {{ display: flex; flex-direction: column; gap: 4px; }}
   .day-item {{
     display: flex;
     align-items: center;
@@ -619,6 +684,22 @@ def build_html(page_date: str, items: list[dict], sidebar_html: str) -> str:
   .day-item.active {{ background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }}
   .day-item.active .day-num {{ color: var(--accent); }}
   .day-dot {{ width: 6px; height: 6px; border-radius: 50%; background: var(--accent); margin-left: auto; }}
+  .week-groups {{ display: flex; flex-direction: column; gap: 2px; }}
+  details.week-group {{ font-size: .8rem; }}
+  details.week-group summary {{
+    cursor: pointer;
+    list-style: none;
+    padding: 7px 10px;
+    border-radius: 8px;
+    color: var(--text-faint);
+    font-size: .74rem;
+    line-height: 1.35;
+  }}
+  details.week-group summary::-webkit-details-marker {{ display: none; }}
+  details.week-group summary:hover {{ background: var(--surface-2); color: var(--text-muted); }}
+  details.week-group summary::before {{ content: "▸ "; }}
+  details.week-group[open] summary::before {{ content: "▾ "; }}
+  .day-list-secondary {{ margin: 2px 0 6px 10px; }}
   .eyebrow {{
     font-family: "IBM Plex Mono", ui-monospace, monospace;
     font-size: .78rem;
@@ -783,17 +864,17 @@ def build_html(page_date: str, items: list[dict], sidebar_html: str) -> str:
       padding: 24px 16px 48px;
     }}
     .sidebar-label {{ padding-left: 2px; }}
-    .day-list {{
+    .sidebar-scroll {{ position: static; max-height: none; overflow: visible; padding-right: 0; }}
+    .day-list:not(.day-list-secondary) {{
       flex-direction: row;
       overflow-x: auto;
       gap: 8px;
-      position: static;
       padding-bottom: 4px;
       -webkit-overflow-scrolling: touch;
     }}
-    .day-item {{ flex: 0 0 auto; flex-direction: column; text-align: center; padding: 8px 14px; gap: 2px; }}
-    .day-item .day-name {{ width: auto; }}
-    .day-dot {{ margin: 0 auto; }}
+    .day-list:not(.day-list-secondary) .day-item {{ flex: 0 0 auto; flex-direction: column; text-align: center; padding: 8px 14px; gap: 2px; }}
+    .day-list:not(.day-list-secondary) .day-item .day-name {{ width: auto; }}
+    .day-list:not(.day-list-secondary) .day-dot {{ margin: 0 auto; }}
   }}
 </style>
 </head>
@@ -855,21 +936,22 @@ def main() -> int:
         # 1. Archiver le rapport du jour (le workflow committe data/ ensuite).
         save_archive(archive_dir, today, page_date_today, items_today)
 
-        # 2. Reconstituer l'historique de la semaine (lundi → aujourd'hui).
-        week_dates = available_week_dates(archive_dir, today)
+        # 2. Historique complet (toutes les semaines archivées, pas
+        # seulement la semaine en cours) — conservé et republié à chaque run.
+        all_dates = all_archive_dates(archive_dir)
 
         # 3. Page du jour à la racine du site.
-        sidebar_root = build_sidebar(week_dates, active_date=today, location="root")
+        sidebar_root = build_sidebar(all_dates, today=today, active_date=today, location="root")
         index_html = build_html(page_date_today, items_today, sidebar_root)
         sanity_check(index_html)
         _write_file(os.path.join(output_dir, "index.html"), index_html)
 
-        # 4. Une page par jour archivé de la semaine, dans archive/.
-        for d in week_dates:
+        # 4. Une page par jour archivé, pour tout l'historique, dans archive/.
+        for d in all_dates:
             archived = load_archive(archive_dir, d)
             if archived is None:
                 continue
-            sidebar_arch = build_sidebar(week_dates, active_date=d, location="archive")
+            sidebar_arch = build_sidebar(all_dates, today=today, active_date=d, location="archive")
             page_html = build_html(archived["page_date"], archived["items"], sidebar_arch)
             _write_file(os.path.join(output_dir, "archive", f"{d.isoformat()}.html"), page_html)
     except Exception as exc:  # noqa: BLE001
@@ -877,7 +959,7 @@ def main() -> int:
         return 1
 
     print(f"Page du jour générée : {os.path.join(output_dir, 'index.html')}")
-    print(f"Historique de la semaine ({len(week_dates)} jour(s)) régénéré dans {os.path.join(output_dir, 'archive')}")
+    print(f"Historique complet ({len(all_dates)} jour(s) archivé(s)) régénéré dans {os.path.join(output_dir, 'archive')}")
     return 0
 
 

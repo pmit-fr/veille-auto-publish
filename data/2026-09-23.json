@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "date_key": "2026-09-23",
+  "page_date": "2026-09-23",
+  "items": [
+    {
+      "category": "reseau_securite",
+      "product": "pfSense / Netgate",
+      "criticality": "important",
+      "impact": "Un compte distant mal configuré peut permettre à un utilisateur de prendre le contrôle total de nos pare-feux pfSense",
+      "technical_detail": "CVE-2026-92182 — exécution de code arbitraire authentifiée via xmlrpc.php (méthode exec_php). Affecte pfSense Plus ≤ 26.07 et pfSense CE ≤ 2.9.0 lorsque l'authentification distante LDAP/RADIUS est activée et qu'un utilisateur distant valide n'a pas de compte local correspondant. Corrigé dans Plus 26.10/26.03.1+ et CE 2.9.0/2.8.1+. CVE ajoutée le 21/09 à l'avis pfSense-SA-26_22 (brouillon initial du 15/09). Pas d'exploitation active confirmée.",
+      "source": "Netgate Security Advisories",
+      "date": "rév. 1.1 du 21/09/2…",
+      "url": "https://docs.netgate.com/downloads/pfSense-SA-26_22.webgui.asc"
+    },
+    {
+      "category": "systemes",
+      "product": "macOS",
+      "criticality": "info",
+      "impact": "Apple a mis à jour sa détection intégrée de malwares sur tous les Mac",
+      "technical_detail": "XProtect passe en version 5360 sur toutes les versions de macOS supportées. Ajout de règles Yara pour plusieurs familles de malwares (MACOS.BONZAI.NCIMA, MACOS.LOATHESOMELABELMAKER.WHCO, MACOS.SHADYSHOELACE et variantes) et de règles OSAScript additionnelles. Apple ne publie pas de détail sur une menace activement exploitée en lien avec cette mise à jour.",
+      "source": "Suivi Apple XProtect (Eclectic Light)",
+      "date": "17/09/2026",
+      "url": "https://eclecticlight.co/2026/09/17/apple-has-released-an-update-to-xprotect-for-all-macos-40/"
+    }
+  ]
+}

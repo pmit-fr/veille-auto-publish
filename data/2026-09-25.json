@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "date_key": "2026-09-25",
+  "page_date": "2026-09-25",
+  "items": [
+    {
+      "category": "cloud_m365",
+      "product": "Microsoft 365 Apps / Outlook",
+      "criticality": "important",
+      "impact": "Ouvrir un email ou un document Office piégé peut permettre à un pirate de prendre le contrôle du poste, via Outlook",
+      "technical_detail": "CVE-2026-70125 — Microsoft Outlook Remote Code Execution Vulnerability. CVSS 3.1 : 8.8 (High) — AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H. Affecte Microsoft 365 Apps for Enterprise (32/64-bit) et Microsoft Office LTSC 2021/2024 (32/64-bit). Aucune authentification requise, interaction utilisateur nécessaire. Non présente au catalogue CISA KEV, aucune exploitation active ni PoC public confirmé à ce jour.",
+      "source": "CERT-FR",
+      "date": "24 septembre 2026",
+      "url": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1224/"
+    }
+  ]
+}

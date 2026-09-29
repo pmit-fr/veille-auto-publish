@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "date_key": "2026-09-29",
+  "page_date": "2026-09-29",
+  "items": [
+    {
+      "category": "systemes",
+      "product": "macOS Tahoe / Sequoia",
+      "criticality": "critique",
+      "impact": "Un fichier piégé peut permettre à un pirate de prendre le contrôle d'un Mac, et cette faille a déjà été utilisée dans des attaques ciblées : les Mac sous Tahoe et Sequoia doivent être mis à jour.",
+      "technical_detail": "CVE-2026-86950 — composant CoreGraphics, écriture hors limites, exécution de code arbitraire via fichier malveillant. Corrigée dans macOS Tahoe 26.7.1 et macOS Sequoia 15.8.1. Apple indique un signe d'exploitation active dans une attaque extrêmement sophistiquée contre des personnes ciblées, sur des versions plus anciennes d'iOS. Les versions 27.0.1 ne comportent pas de CVE publié.",
+      "source": "Apple Security Releases",
+      "date": "28/09/2026",
+      "url": "https://support.apple.com/en-us/149228"
+    },
+    {
+      "category": "autres_outils",
+      "product": "Citrix NetScaler (hors parc suivi)",
+      "criticality": "info",
+      "impact": "Le CERT-FR alerte sur des failles exploitées dans un produit d'accès distant que nous n'utilisons pas : aucune action pour notre parc.",
+      "technical_detail": "CERTFR-2026-ALE-011 / AVI-1235 du 28/09/2026 — plusieurs vulnérabilités Citrix NetScaler ADC et Gateway (exécution de code à distance, déni de service, contournement de politique de sécurité). Exploitation 0-day signalée par la CISA le 27/09 (CVE-2026-88771, CVE-2026-88772). Produit hors périmètre du parc.",
+      "source": "CERT-FR",
+      "date": "28/09/2026",
+      "url": "https://www.cert.ssi.gouv.fr/alerte/"
+    }
+  ]
+}

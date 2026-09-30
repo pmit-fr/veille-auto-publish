@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "date_key": "2026-09-30",
+  "page_date": "2026-09-30",
+  "items": [
+    {
+      "category": "gestion_parc",
+      "product": "NinjaOne",
+      "criticality": "info",
+      "impact": "NinjaOne peut être brièvement ralenti ou indisponible pendant des maintenances déjà annoncées, sans rien à faire de notre côté.",
+      "technical_detail": "Infrastructure Maintenance OC : 30/09/2026 09:00-13:00 CDT (extension capacité réseau). Release 15.1.0 US : 30/09 20:00 → 01/10/2026 02:00 CDT. Statut actuel : tous systèmes opérationnels, aucun incident le 29/09.",
+      "source": "NinjaOne Status",
+      "date": "30/09/2026",
+      "url": "https://status.ninjaone.com"
+    },
+    {
+      "category": "autres_outils",
+      "product": "TeamViewer",
+      "criticality": "important",
+      "impact": "Des failles dans TeamViewer peuvent donner à un utilisateur plus de droits que prévu sur un poste ou pendant une session à distance ; il faut mettre à jour TeamViewer.",
+      "technical_detail": "CVE-2026-19743 (7.8, élévation locale via IPC), CVE-2026-92368 (7.8, débordement de tas, lecture d'enregistrement de session Linux/macOS), CVE-2026-92369 (7.3, installeur Windows), CVE-2026-92370 (8.8, contournement des permissions en session), CVE-2026-92371 (7.0, enregistrement cloud Linux). Versions concernées : < 15.82 ; corrigé en 15.82, 15.64.8, 14.7.48855, 13.2.36230. Éditeur : aucune divulgation publique ni exploitation connue.",
+      "source": "TeamViewer Trust Center TV-2026-1010",
+      "date": "29/09/2026",
+      "url": "https://www.teamviewer.com/en/resources/trust-center/security-bulletins/tv-2026-1010/"
+    }
+  ]
+}

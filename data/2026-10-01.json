@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "date_key": "2026-10-01",
+  "page_date": "2026-10-01",
+  "items": [
+    {
+      "category": "autres_outils",
+      "product": "GitLab",
+      "criticality": "critique",
+      "impact": "Un pirate peut lire n'importe quel fichier de nos serveurs GitLab sans mot de passe, et des attaques réelles sont déjà en cours.",
+      "technical_detail": "CVE-2026-85706 (CVSS 10.0) : traversée de chemin dans l'API des commits, lecture arbitraire de fichiers sans authentification ; ajoutée au CISA KEV le 11/09/2026. CE/EE 18.7 à 19.3.1 concernées ; corrigé en 19.1.8, 19.2.6, 19.3.2. CVE-2026-87719 (désérialisation GraphQL, EE). Avis CERTFR-2026-AVI-1242.",
+      "source": "CERT-FR",
+      "date": "30/09/2026",
+      "url": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1242/"
+    },
+    {
+      "category": "autres_outils",
+      "product": "Google Chrome",
+      "criticality": "info",
+      "impact": "Chrome doit être mis à jour sur les postes pour corriger de nombreuses failles de sécurité.",
+      "technical_detail": "Chrome < 154.0.8037.92 (Windows/Linux) et < 154.0.8037.93 (Mac) ; 32 CVE (CVE-2026-102299 à CVE-2026-102331). Exploitation active non précisée dans l'avis. Avis CERTFR-2026-AVI-1237.",
+      "source": "CERT-FR",
+      "date": "30/09/2026",
+      "url": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1237/"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "date_key": "2026-10-05",
+  "page_date": "2026-10-05",
+  "items": [
+    {
+      "category": "reseau_securite",
+      "product": "FortiMail",
+      "criticality": "critique",
+      "impact": "Un pirate peut prendre le contrôle à distance d'un serveur de messagerie Fortinet FortiMail, sans mot de passe, et cette faille est déjà utilisée dans des attaques réelles.",
+      "technical_detail": "CVE-2026-104286, CVSS 9.8, FG-IR-26-175 (CERTFR-2026-AVI-1257). Écriture de fichiers arbitraires via traversée de chemin dans la fonction IBE. Versions vulnérables : 8.0.0–8.0.1, 7.6.0–7.6.6, 7.4.0–7.4.8, 7.2.0–7.2.9. Corrigé en 8.0.2, 7.6.7, 7.4.9 ; la branche 7.2 doit migrer vers 7.4 ou plus. Contournement : désactiver IBE, restreindre l'accès webmail depuis Internet. À traiter si FortiMail fait partie du parc.",
+      "source": "FortiGuard PSIRT",
+      "date": "1er octobre 2026",
+      "url": "https://fortiguard.fortinet.com/psirt/FG-IR-26-175"
+    },
+    {
+      "category": "autres_outils",
+      "product": "Microsoft Edge",
+      "criticality": "info",
+      "impact": "Des failles du navigateur Edge peuvent être exploitées via un site web piégé ; la mise à jour du navigateur les corrige.",
+      "technical_detail": "CERTFR-2026-AVI-1251 : 34 CVE (CVE-2026-85047 à CVE-2026-93387), gravité non précisée par l'éditeur. Versions antérieures à 153.0.4234.49 concernées.",
+      "source": "CERT-FR",
+      "date": "2 octobre 2026",
+      "url": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1251/"
+    }
+  ]
+}

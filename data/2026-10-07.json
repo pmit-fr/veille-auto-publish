@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "date_key": "2026-10-07",
+  "page_date": "2026-10-07",
+  "items": [
+    {
+      "category": "cloud_m365",
+      "product": "Microsoft Office / Microsoft 365 Apps",
+      "criticality": "important",
+      "impact": "Un pirate peut prendre le contrôle d'un poste via une faille dans Office si les mises à jour ne sont pas installées.",
+      "technical_detail": "CVE-2026-100208 — exécution de code à distance. Microsoft 365 Apps for Enterprise, Office LTSC 2021 et 2024 (32/64 bits). Correctif référencé dans le bulletin Microsoft du 25/09/2026. Exploitation active non mentionnée. CERTFR-2026-AVI-1266.",
+      "source": "CERT-FR",
+      "date": "6 octobre 2026",
+      "url": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1266/"
+    }
+  ]
+}

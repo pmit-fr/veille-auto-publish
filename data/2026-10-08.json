@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "date_key": "2026-10-08",
+  "page_date": "2026-10-08",
+  "items": [
+    {
+      "category": "sauvegarde",
+      "product": "Veeam Backup & Replication",
+      "criticality": "critique",
+      "impact": "Un utilisateur du logiciel de sauvegarde Veeam avec un simple accès en lecture peut prendre le contrôle du serveur de sauvegarde.",
+      "technical_detail": "CVE-2025-64393 (critique, CVSS v4 9.4, exécution de code à distance par désérialisation, rôle Backup Viewer) · CVE-2026-93026 (6.1) · CVE-2025-64392 (4.8, XSS Enterprise Manager) · Versions 12.3.2.4854 et antérieures · Corrigé en 12.3.2 P4 (build 12.3.2.4934) · v13 non concernée · Pas d'exploitation active mentionnée · Fin de support de la v12 : 28/02/2027 · CERTFR-2026-AVI-1278.",
+      "source": "Veeam KB4934",
+      "date": "6 oct. 2026",
+      "url": "https://www.veeam.com/kb4934"
+    },
+    {
+      "category": "reseau_securite",
+      "product": "SonicWall SMA1000",
+      "criticality": "important",
+      "impact": "Des failles permettent de prendre le contrôle à distance des accès VPN SonicWall SMA1000, un produit déjà attaqué plusieurs fois cette année.",
+      "technical_detail": "CERTFR-2026-AVI-1275 · CVE-2026-102255, -102256, -102257, -102258 · RCE, SSRF, XSS · SMA1000 12.5 < 12.5.0-03082 et < 12.4.3-03670 · Bulletin SNWLID-2026-0017 (6 oct.) · Pas d'exploitation active signalée par l'éditeur.",
+      "source": "CERT-FR",
+      "date": "7 oct. 2026",
+      "url": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1275/"
+    },
+    {
+      "category": "autres_outils",
+      "product": "OpenSSH",
+      "criticality": "info",
+      "impact": "Des failles dans OpenSSH peuvent permettre de prendre le contrôle de machines qui l'utilisent ; une version corrigée existe.",
+      "technical_detail": "CERTFR-2026-AVI-1271 · OpenSSH < 10.6 · RCE, élévation de privilèges, contournement de politique de sécurité · Aucun CVE détaillé dans l'avis · Aucune exploitation signalée · Bulletin éditeur du 6 oct. 2026.",
+      "source": "CERT-FR",
+      "date": "7 oct. 2026",
+      "url": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1271/"
+    }
+  ]
+}

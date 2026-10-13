@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "date_key": "2026-10-13",
+  "page_date": "2026-10-13",
+  "items": [
+    {
+      "category": "cloud_m365",
+      "product": "Microsoft Patch Tuesday",
+      "criticality": "important",
+      "impact": "Microsoft publie ses mises à jour de sécurité mensuelles aujourd'hui : elles sont à vérifier et à installer, mais leur contenu exact n'est pas encore confirmé.",
+      "technical_detail": "⚠️ NON CONFIRMÉ — source unique (agrégateur trinetriops.com). La page MSRC n'est pas lisible sans JavaScript. Selon cette source : 8 CVE (7 critiques), aucun zero-day exploité ; Partner Center CVE-2026-96207 (CVSS 10.0), Azure App Service CVE-2026-77900 et Dataverse CVE-2026-88131 (RCE, 9.8), Exchange Server CVE-2026-96940 (élévation de privilèges, 8.8). Aucune source officielle ni presse spécialisée n'a pu corroborer.",
+      "source": "MSRC (page générale)",
+      "date": "13/10/2026",
+      "url": "https://msrc.microsoft.com/update-guide/"
+    },
+    {
+      "category": "autres_outils",
+      "product": "GitLab",
+      "criticality": "important",
+      "impact": "Des failles dans GitLab peuvent permettre à un pirate d'exécuter du code à distance et de contourner des protections tant que la mise à jour n'est pas installée.",
+      "technical_detail": "CERTFR-2026-AVI-1294 (bulletin éditeur du 12/10/2026) : 24 CVE (dont CVE-2026-5954, CVE-2026-105458). Versions concernées (CE/EE) : < 19.2.8, 19.3.x < 19.3.4, 19.4.x < 19.4.2. Risques : exécution de code à distance, SSRF, XSS, contournement de politique de sécurité, atteinte à la confidentialité et à l'intégrité. Correctif : passer à 19.2.8, 19.3.4 ou 19.4.2.",
+      "source": "CERT-FR",
+      "date": "12/10/2026",
+      "url": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1294/"
+    }
+  ]
+}

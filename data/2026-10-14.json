@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "date_key": "2026-10-14",
+  "page_date": "2026-10-14",
+  "items": [
+    {
+      "category": "systemes",
+      "product": "Windows (10/11, Server)",
+      "criticality": "critique",
+      "impact": "Une faille déjà utilisée par des pirates permet de faire ouvrir des fichiers téléchargés piégés sans avertissement de sécurité sur les PC Windows.",
+      "technical_detail": "CVE-2026-96951 — Windows Shell, contournement de fonctionnalité de sécurité (Mark of the Web / SmartScreen), exploitée activement, exploitable via le réseau. CVSS non communiqué. Correctif inclus dans le Patch Tuesday d'octobre 2026. Détails MSRC non lisibles sans JavaScript : confirmé par plusieurs relais (BleepingComputer, WindowsForum).",
+      "source": "BleepingComputer (Patch Tuesday octobre 2026)",
+      "date": "13/10/2026",
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-october-2026-patch-tuesday-fixes-1-411-flaws-3-zero-days/"
+    },
+    {
+      "category": "systemes",
+      "product": "Windows Server / .NET Framework",
+      "criticality": "important",
+      "impact": "Des failles corrigées cette semaine peuvent permettre de prendre le contrôle de l'annuaire des utilisateurs (Active Directory) ou de lancer du code non autorisé malgré les protections.",
+      "technical_detail": "CVE-2026-70229 (Active Directory Domain Services, exécution de code à distance, Critique) ; CVE-2026-108398 (.NET Framework, contournement WDAC, divulguée publiquement, signalée par James Forshaw / Google Project Zero). Patch Tuesday du 13/10/2026 : 1 411 failles comptabilisées dont 70 critiques.",
+      "source": "BleepingComputer (Patch Tuesday octobre 2026)",
+      "date": "13/10/2026",
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-october-2026-patch-tuesday-fixes-1-411-flaws-3-zero-days/"
+    },
+    {
+      "category": "systemes",
+      "product": "Windows 10 / 11",
+      "criticality": "important",
+      "impact": "Certaines versions de Windows ne recevront plus aucune mise à jour de sécurité après celle d'octobre.",
+      "technical_detail": "Fin des mises à jour le 13/10/2026 : Windows 11 24H2 (Home et Pro) et Windows 10 Enterprise LTSB 2016. Windows 11 23H2 Enterprise/Education/IoT Enterprise : fin des mises à jour de sécurité le 10/11/2026 (indiqué comme « le mois prochain »). Windows Server non précisé dans cette source.",
+      "source": "BleepingComputer (Patch Tuesday octobre 2026)",
+      "date": "13/10/2026",
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-october-2026-patch-tuesday-fixes-1-411-flaws-3-zero-days/"
+    },
+    {
+      "category": "cloud_m365",
+      "product": "Outlook (Windows)",
+      "criticality": "important",
+      "impact": "⚠️ NON CONFIRMÉ — source unique : des failles dans Outlook pourraient permettre à un mail piégé de lancer du code, peut-être sans même l'ouvrir.",
+      "technical_detail": "⚠️ NON CONFIRMÉ — source unique (Cyber Daily, relayé par WindowsForum) : 5 RCE Outlook CVE-2026-70242, CVE-2026-97749, CVE-2026-97016, CVE-2026-88156, CVE-2026-70291 ; volet de lecture cité comme vecteur. À vérifier dans le MSRC Security Update Guide.",
+      "source": "WindowsForum (relayant Cyber Daily)",
+      "date": "13/10/2026",
+      "url": "https://windowsforum.com/news/october-2026-patch-tuesday-1-400-fixes-exploited-windows-shell-zero-day-and-support-deadlines.448186/"
+    },
+    {
+      "category": "cloud_m365",
+      "product": "Azure / Entra (AD FS)",
+      "criticality": "important",
+      "impact": "Des failles critiques corrigées touchent le service Azure App Service et les serveurs de connexion AD FS.",
+      "technical_detail": "CVE-2026-77900 (Azure App Service, exécution de code à distance, Critique) ; CVE-2026-96222 et CVE-2026-108131 (Active Directory Federation Services, usurpation, Critique). Tableau complet non intégralement lu.",
+      "source": "BleepingComputer (Patch Tuesday octobre 2026)",
+      "date": "13/10/2026",
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-october-2026-patch-tuesday-fixes-1-411-flaws-3-zero-days/"
+    },
+    {
+      "category": "cloud_m365",
+      "product": "Exchange Server",
+      "criticality": "info",
+      "impact": "⚠️ NON CONFIRMÉ — source unique : Exchange 2016 et 2019 cesseraient d'être suivis par Microsoft à partir du 15 octobre.",
+      "technical_detail": "⚠️ NON CONFIRMÉ — source unique (Cyber Daily via WindowsForum) : fin de support d'Exchange Server 2016/2019 au 15/10/2026. Les correctifs Exchange d'octobre ne sont pas inclus dans le décompte mensuel.",
+      "source": "WindowsForum (relayant Cyber Daily)",
+      "date": "13/10/2026",
+      "url": "https://windowsforum.com/news/october-2026-patch-tuesday-1-400-fixes-exploited-windows-shell-zero-day-and-support-deadlines.448186/"
+    },
+    {
+      "category": "reseau_securite",
+      "product": "Fortinet (FortiSandbox)",
+      "criticality": "important",
+      "impact": "Une faille permet à un pirate de se connecter sans mot de passe à l'outil d'analyse Fortinet FortiSandbox (pas de FortiGate concerné dans cet avis).",
+      "technical_detail": "FG-IR-26-185 / CVE-2026-107656 — contournement d'authentification de l'interface web FortiSandbox, CVSS 9.6, non exploitée à ce jour. Corrigé en 5.0.7+ et 4.4.10+ ; 5.2 non affecté. Six autres avis FortiGuard publiés le 13/10 (FG-IR-26-176/177/178/179/181/182, gravité Faible à Élevée) : produits non vérifiés.",
+      "source": "FortiGuard PSIRT",
+      "date": "13/10/2026",
+      "url": "https://www.fortiguard.com/psirt/FG-IR-26-185"
+    }
+  ]
+}

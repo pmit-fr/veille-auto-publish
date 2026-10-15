@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "date_key": "2026-10-15",
+  "page_date": "2026-10-15",
+  "items": [
+    {
+      "category": "reseau_securite",
+      "product": "FortiAnalyzer / FortiManager",
+      "criticality": "important",
+      "impact": "Une faille permet de lire ou modifier des fichiers sur les serveurs Fortinet de gestion et de journaux.",
+      "technical_detail": "FG-IR-26-178 / CVE-2025-46773, sévérité High : lecture/écriture arbitraire de fichiers via injection SQL (FortiAnalyzer, FortiAnalyzer Cloud, FortiManager, FortiManager Cloud). Aussi FG-IR-26-177 / CVE-2026-106171 (Medium) : exécution de commande dans le démon fgfmsd de FortiManager. Aucune exploitation active mentionnée.",
+      "source": "FortiGuard PSIRT",
+      "date": "13/10/2026",
+      "url": "https://fortiguard.com/psirt"
+    },
+    {
+      "category": "reseau_securite",
+      "product": "FortiOS",
+      "criticality": "info",
+      "impact": "Une faille peut rendre l'interface d'administration des firewalls Fortinet indisponible.",
+      "technical_detail": "FG-IR-26-181 / CVE-2026-106174, Medium : déni de service de l'interface GUI, FortiOS 8.0.0 et 7.6.4–7.6.6. FG-IR-26-182 / CVE-2026-106175 (Low) : double free local authentifié (FortiOS, FortiProxy, FortiSwitch).",
+      "source": "FortiGuard PSIRT",
+      "date": "13/10/2026",
+      "url": "https://fortiguard.com/psirt"
+    }
+  ]
+}

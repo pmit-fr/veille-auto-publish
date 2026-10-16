@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "date_key": "2026-10-16",
+  "page_date": "2026-10-16",
+  "items": [
+    {
+      "category": "reseau_securite",
+      "product": "FortiSandbox",
+      "criticality": "important",
+      "impact": "Une faille permet de s'attaquer à l'outil d'analyse de fichiers FortiSandbox ; nos FortiGate ne sont pas concernés par cet avis.",
+      "technical_detail": "FG-IR-26-185 / CVE-2026-107656 (Critical) — FortiSandbox, FortiSandbox PaaS. Détails sur la page générale PSIRT. Publié il y a plus de 24 h, non rapporté dans les veilles précédentes.",
+      "source": "FortiGuard PSIRT",
+      "date": "13 octobre 2026",
+      "url": "https://fortiguard.com/psirt"
+    },
+    {
+      "category": "cloud_m365",
+      "product": "SharePoint Server",
+      "criticality": "info",
+      "impact": "Une faille permet à un utilisateur d'obtenir plus de droits que prévu sur un serveur SharePoint hébergé en interne.",
+      "technical_detail": "CERTFR-2026-AVI-1323 / CVE-2026-88164 — élévation de privilèges, SharePoint Server Subscription Edition < 16.0.20326.20190. Ne concerne pas SharePoint Online.",
+      "source": "CERT-FR",
+      "date": "15 octobre 2026 (bu…",
+      "url": "https://cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1323"
+    }
+  ]
+}

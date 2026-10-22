@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "date_key": "2026-10-22",
+  "page_date": "2026-10-22",
+  "items": [
+    {
+      "category": "autres_outils",
+      "product": "Google Chrome",
+      "criticality": "info",
+      "impact": "Des mises à jour de sécurité existent pour Google Chrome : il faut mettre à jour le navigateur sur les postes.",
+      "technical_detail": "CERTFR-2026-AVI-1357 : « Multiples vulnérabilités dans Google Chrome » (21/10/2026). CVE, scores CVSS et versions non consultés ; voir l'avis sur cert.cyber.gouv.fr.",
+      "source": "CERT-FR",
+      "date": "21/10/2026",
+      "url": "https://cert.cyber.gouv.fr/"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "date_key": "2026-10-23",
+  "page_date": "2026-10-23",
+  "items": [
+    {
+      "category": "autres_outils",
+      "product": "GitLab",
+      "criticality": "important",
+      "impact": "Des failles dans GitLab peuvent permettre à un pirate de prendre le contrôle du serveur à distance ou de voler des données : il faut mettre GitLab à jour.",
+      "technical_detail": "CERTFR-2026-AVI-1363 : 12 CVE référencées (dont CVE-2026-103515, CVE-2026-105711, CVE-2026-112212 ; liste complète dans l'avis). Versions concernées (CE/EE) : 19.4.x antérieures à 19.4.3, 19.5.x antérieures à 19.5.1, toutes versions antérieures à 19.3.6. Risques : exécution de code à distance, atteinte à la confidentialité, contournement de la politique de sécurité, déni de service. Scores CVSS non indiqués dans l'avis.",
+      "source": "CERT-FR",
+      "date": "22/10/2026",
+      "url": "https://cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1363/"
+    }
+  ]
+}

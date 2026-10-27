@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "date_key": "2026-10-27",
+  "page_date": "2026-10-27",
+  "items": [
+    {
+      "category": "systemes",
+      "product": "Windows / .NET / PowerShell",
+      "criticality": "important",
+      "impact": "Une faille peut permettre à un pirate de gagner des droits d'administrateur sur des machines qui utilisent certaines applications .NET non mises à jour.",
+      "technical_detail": "CVE-2026-111497 (HTTP2Shell / Broccoli2Shell), débordement de mémoire dans le décodeur Brotli, CVSS non communiqué. Correctifs : .NET 8.0.33, 9.0.22, 10.0.14 ; CERT-FR AVI-1383 cite aussi Visual Studio 2019/2022/2026 et PowerShell 7.4/7.5/7.6. Exploit public (PoC GitHub), aucune exploitation confirmée dans la nature. Contournement : bloquer les requêtes compressées Brotli au niveau proxy/firewall.",
+      "source": "BleepingComputer / CERT-FR",
+      "date": "26/10/2026",
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-releases-emergency-net-patches-for-critical-brotli-flaw/"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "date_key": "2026-10-29",
+  "page_date": "2026-10-29",
+  "items": [
+    {
+      "category": "systemes",
+      "product": "macOS",
+      "criticality": "important",
+      "impact": "Ces mises à jour corrigent des centaines de failles, dont certaines permettant à une application malveillante de prendre le contrôle complet du Mac.",
+      "technical_detail": "macOS Tahoe 26.7.2 (213 CVE) et Sequoia 15.8.2 (197 CVE), publiés le 26/10/2026 (macOS Golden Gate 27.2 aussi). Exemples : CVE-2026-112438 noyau (code exécuté en root par un attaquant non privilégié), CVE-2026-84545 CUPS (sortie du bac à sable et code root), plusieurs contournements Gatekeeper (ex. CVE-2026-112568), Screen Sharing Server CVE-2026-84590 (plantage ou corruption de mémoire à distance). Apple n'indique aucune exploitation active. Aucune mise à jour listée pour Sonoma ou antérieures. Non repéré dans les rapports des 27 et 28/10.",
+      "source": "Apple Security Releases",
+      "date": "26/10/2026",
+      "url": "https://support.apple.com/en-us/149522"
+    },
+    {
+      "category": "systemes",
+      "product": "Microsoft Edge",
+      "criticality": "info",
+      "impact": "Le navigateur Edge a reçu des correctifs de sécurité : il faut vérifier qu'il est à jour sur les postes.",
+      "technical_detail": "CERTFR-2026-AVI-1405 : CVE-2026-20942, CVE-2026-62765, CVE-2026-88078, CVE-2026-96196. Concerne Edge 156.x avant 156.0.4314.42 et les versions avant 149.0.4022.62 (bulletins Microsoft du 27/10/2026). L'avis ne précise pas d'exploitation.",
+      "source": "CERT-FR",
+      "date": "28/10/2026",
+      "url": "https://cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1405/"
+    }
+  ]
+}

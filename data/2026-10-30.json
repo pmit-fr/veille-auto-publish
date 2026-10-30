@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "date_key": "2026-10-30",
+  "page_date": "2026-10-30",
+  "items": [
+    {
+      "category": "sauvegarde",
+      "product": "Veeam Backup & Replication",
+      "criticality": "critique",
+      "impact": "Une personne non identifiée peut agir à distance sur notre serveur de sauvegarde Veeam et fausser ou bloquer nos sauvegardes.",
+      "technical_detail": "CVE-2026-108142 (CVSS v4 9.1) : contournement d'autorisation sans authentification, CDP Coordinator Service. CVE-2026-108140 / -108141 (5.9) : path traversal Restore Operator. CVE-2026-105477 (7.3) : élévation locale, Veeam Agent for Linux géré par VBR. Affecté : VBR 13.1.1.18 et antérieurs 13.1, 13.0.2.29 et antérieurs 13.0 (12.x non affecté). Corrigé : 13.1.2 (13.1.2.57), 13.0.3 (13.0.3.63), Agent Linux 13.1.2.11. Exploitation : non indiquée.",
+      "source": "Veeam KB4948",
+      "date": "27/10/2026",
+      "url": "https://www.veeam.com/kb4948"
+    },
+    {
+      "category": "sauvegarde",
+      "product": "Veeam Backup for Microsoft 365",
+      "criticality": "important",
+      "impact": "Des failles permettent d'exécuter du code ou de lire des fichiers sur le serveur qui sauvegarde Microsoft 365.",
+      "technical_detail": "CVE-2026-106076 (9.0, injection SQL → exécution de code), CVE-2026-106077 (8.3, lecture de fichiers en LocalSystem), CVE-2026-106078 (6.9, contournement d'authentification API REST), CVE-2025-64394 (4.3). Corrigé : 8.6 (8.6.0.1102) et 8.6 Patch 1 (8.6.0.5011). Exploitation : non indiquée.",
+      "source": "Veeam KB4957",
+      "date": "27/10/2026",
+      "url": "https://www.veeam.com/kb4957"
+    },
+    {
+      "category": "autres_outils",
+      "product": "TeamViewer",
+      "criticality": "important",
+      "impact": "Des failles peuvent donner le contrôle d'un poste quand on se connecte à une machine piégée.",
+      "technical_detail": "CVE-2026-92372 (8.8), CVE-2026-111585 (8.8), CVE-2026-92374 (7.8, élévation de privilèges macOS). Affecté : Full Client / Host / Portable / app Android avant 15.83. Corrigé : 15.83 ; anciennes branches 15.64.10, 14.7.48868, 13.2.x. Exploitation active : TeamViewer n'en a pas connaissance.",
+      "source": "TeamViewer Trust Center TV-2026-1011",
+      "date": "27/10/2026",
+      "url": "https://www.teamviewer.com/en/resources/trust-center/security-bulletins/tv-2026-1011/"
+    },
+    {
+      "category": "autres_outils",
+      "product": "Synology",
+      "criticality": "info",
+      "impact": "Une faille dans une bibliothèque de décompression touche le client Synology Chat ; les autres applications listées ne sont pas concernées.",
+      "technical_detail": "CVE-2026-111497 (CVSS 9.8) : dépassement de tampon, Google Brotli 1.0.3 à 1.2.0. Seul Synology Chat Client est affecté (Moderate, correctif en cours) ; Application Service, Calendar, Chat Server, Contacts, Drive Server, MailPlus, Meet, Office, Photos, VPN Plus Server, Note Station Client non affectés. Mitigation : aucune. Exploitation : non indiquée.",
+      "source": "Synology Security Advisory SA-26:15",
+      "date": "29/10/2026",
+      "url": "https://www.synology.com/en-uk/support/security/Synology_SA_26_15"
+    }
+  ]
+}

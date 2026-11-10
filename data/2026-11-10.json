@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "date_key": "2026-11-10",
+  "page_date": "2026-11-10",
+  "items": [
+    {
+      "category": "systemes",
+      "product": "macOS Tahoe / Sequoia",
+      "criticality": "important",
+      "impact": "Apple a publié des correctifs de sécurité pour les Mac récents (Tahoe et Sequoia) : ils sont à installer.",
+      "technical_detail": "macOS Tahoe 26.7.3 et Sequoia 15.8.3 (9 nov. 2026) : 9 CVE (AirPlay, Bluetooth use-after-free CVE-2026-113970, brotli CVE-2026-111497, CoreUtils, Messages, rapportd). Aucune exploitation active mentionnée. Sonoma et versions antérieures non mentionnées sur ces pages.",
+      "source": "Apple Security Releases",
+      "date": "09/11/2026",
+      "url": "https://support.apple.com/en-us/149719"
+    },
+    {
+      "category": "autres_outils",
+      "product": "Synology",
+      "criticality": "important",
+      "impact": "Une faille dans une bibliothèque de décompression peut permettre à un pirate d'exécuter du code sur le logiciel Synology Chat Client ; une mise à jour est disponible.",
+      "technical_detail": "Synology-SA-26:15 (publié 29/10, révisé 09/11/2026), sévérité Moderate : CVE-2026-111497, buffer overflow Brotli, CVSS 9.8 au niveau CVE ; Synology Chat Client à passer en 1.2.5-0240 ou supérieur ; DSM/SRM indiqués non affectés. CERT-FR CERTFR-2026-AVI-1482 (09/11) couvre aussi Plex Media Server pour DSM (SA-26:17, 08/11 ; CVE-2026-96652/-96654/-96655/-96656 non détaillées). Aucune exploitation active mentionnée.",
+      "source": "Synology Security Advisory / CERT-FR",
+      "date": "09/11/2026",
+      "url": "https://www.synology.com/security/advisory/Synology_SA_26_15"
+    },
+    {
+      "category": "cloud_m365",
+      "product": "Microsoft Patch Tuesday",
+      "criticality": "info",
+      "impact": "Le Patch Tuesday Microsoft de novembre est prévu aujourd'hui ; son contenu n'a pas pu être confirmé à l'heure de ce rapport.",
+      "technical_detail": "⚠️ NON CONFIRMÉ — source unique : des agrégateurs tiers (it-sb.ch, zerodaywatch.org) indiquent 2 correctifs dont CVE-2026-109469 (Entra Device Registration, CVSS 10.0) et 0 zero-day, avec une date de sortie du 4 nov. incohérente avec le 10 nov. Page MSRC illisible (JavaScript requis). À vérifier sur MSRC.",
+      "source": "MSRC (non lisible) / agrégateurs tiers",
+      "date": "10/11/2026",
+      "url": "https://msrc.microsoft.com/update-guide/releaseNote/2026-Nov"
+    }
+  ]
+}

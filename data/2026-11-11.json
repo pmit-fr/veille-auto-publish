@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "date_key": "2026-11-11",
+  "page_date": "2026-11-11",
+  "items": [
+    {
+      "category": "cloud_m365",
+      "product": "Outlook / Microsoft 365",
+      "criticality": "critique",
+      "impact": "Un pirate peut voler l'identité d'un collègue simplement en lui faisant ouvrir un fichier Office piégé ; la faille est déjà utilisée dans de vraies attaques.",
+      "technical_detail": "CVE-2026-124194 — usurpation (spoofing) dans Microsoft Outlook, CVSS 6.5, exploitée activement (zero-day). L'ouverture d'un fichier Office forgé fait fuiter le hash NTLMv2 de la victime, réutilisable pour s'authentifier à sa place. Corrigée par le Patch Tuesday du 10/11/2026 : déployer les mises à jour Office/Outlook.",
+      "source": "Tenable (Patch Tuesday novembre 2026)",
+      "date": "10/11/2026",
+      "url": "https://www.tenable.com/blog/microsoft-november-2026-patch-tuesday-addresses-1093-cves-cve-2026-124194"
+    },
+    {
+      "category": "systemes",
+      "product": "Windows / Windows Server",
+      "criticality": "critique",
+      "impact": "Microsoft corrige plus de mille failles ce mois-ci, dont plusieurs qui permettent de prendre le contrôle à distance de serveurs Windows et du contrôleur de domaine.",
+      "technical_detail": "Patch Tuesday 10/11/2026 : 1 093 CVE selon Tenable (63 critiques ; d'autres médias annoncent 1 235, écart non expliqué). Critiques à exploitation « More Likely » : CVE-2026-118146 AD DS RCE (8.8), CVE-2026-119952 Schannel RCE non authentifiée (8.1), CVE-2026-113862 Windows NAT RCE (8.1), CVE-2026-118207 Exchange Server RCE (8.8). Nombreuses élévations de privilèges 7.8 (Kernel, Installer, Print Spooler, Winlogon…). Numéros KB non vérifiés : voir le guide MSRC.",
+      "source": "Tenable / MSRC",
+      "date": "10/11/2026",
+      "url": "https://msrc.microsoft.com/update-guide/releaseNote/2026-Nov"
+    },
+    {
+      "category": "reseau_securite",
+      "product": "FortiGate / FortiOS",
+      "criticality": "critique",
+      "impact": "Fortinet publie un lot massif de correctifs, dont plusieurs failles graves qui peuvent permettre de contourner la sécurité de nos firewalls FortiGate.",
+      "technical_detail": "50 avis PSIRT publiés le 10/11/2026 (flux RSS FortiGuard). FortiOS critiques selon SecurityOnline : CVE-2026-126253 contournement d'authentification OSPF (9.3), CVE-2026-126254 BGP (9.6), CVE-2026-126259 absence d'authentification HA, FGSP/autoscale uniquement (9.0). Correctifs FortiOS 7.2.14 / 7.4.13 / 7.6.8 / 8.0.2. Aucune exploitation connue. ⚠️ Détail par CVE non vérifié sur FortiGuard (liste PSIRT non lisible) — source secondaire.",
+      "source": "SecurityOnline / flux PSIRT FortiGuard",
+      "date": "10/11/2026",
+      "url": "https://securityonline.info/fortinet-critical-vulnerabilities-november-2026/"
+    },
+    {
+      "category": "reseau_securite",
+      "product": "FortiGate / FortiOS",
+      "criticality": "important",
+      "impact": "Une faille de la connexion SSH des firewalls Fortinet peut permettre d'y entrer sans mot de passe, mais seulement avec une option de connexion Google Cloud activée.",
+      "technical_detail": "FG-IR-26-269 / CVE-2026-126255, CVSS 7.4 (High), traversée de chemin dans sshd, contournement d'authentification non authentifié si « GCP OS Login » est activé. FortiOS 7.2.0-7.2.13, 7.4.0-7.4.12, 7.6.0-7.6.7, 8.0.0-8.0.1 → 7.2.14 / 7.4.13 / 7.6.8 / 8.0.2. Non exploitée.",
+      "source": "FortiGuard PSIRT",
+      "date": "10/11/2026",
+      "url": "https://www.fortiguard.com/psirt/FG-IR-26-269"
+    },
+    {
+      "category": "autres_outils",
+      "product": "NAS Synology (DSM)",
+      "criticality": "important",
+      "impact": "Plusieurs failles des NAS Synology peuvent permettre de lire des données ou de contourner des protections ; une mise à jour du système du NAS est disponible.",
+      "technical_detail": "Synology-SA-26:18 (Important) : 25 CVE, max CVSS 8.8 (CVE-2026-13672, -18792, -74857). DSM 7.4 → 7.4.1-90080-1 ; DSM 7.3 → 7.3.2-86009-5. CERT-FR AVI-1493 (avec SA-26:19) inclut aussi DSM 7.2.1 < 7.2.1-69057-13 et 7.2.2 < 7.2.2-72806-10. Risques : fuite de données, contournement de politique, DoS, SSRF.",
+      "source": "Synology / CERT-FR AVI-1493",
+      "date": "10/11/2026",
+      "url": "https://www.synology.com/en-global/security/advisory/Synology_SA_26_18"
+    },
+    {
+      "category": "sauvegarde",
+      "product": "Veeam Backup & Replication",
+      "criticality": "important",
+      "impact": "Une faille grave dans le système des serveurs de sauvegarde Veeam peut les faire planter ou permettre d'y exécuter du code ; une mise à jour existe pour la version 13.",
+      "technical_detail": "CVE-2026-98432 (CVSS 9.8, noyau Linux) — VBR 13.1 ≤ 13.1.2.57 et 13.0 ≤ 13.0.2.29 (Windows et Veeam Software Appliance) ; v12 aussi affectée, correctif 12.3.2 annoncé. Corrigé : 13.1.2 build 13.1.2.57_20261105. Rapporté par K-iS (09/11) d'après Veeam KB4966 — KB officielle non consultée directement.",
+      "source": "K-iS Security Advisory 2026-015 (Veeam KB4966)",
+      "date": "09/11/2026",
+      "url": "https://www.veeam.com/kb4966"
+    },
+    {
+      "category": "autres_outils",
+      "product": "Google Chrome",
+      "criticality": "important",
+      "impact": "Une faille de Chrome déjà utilisée par des pirates permet d'attaquer un poste via une page web ; il faut mettre le navigateur à jour.",
+      "technical_detail": "CERT-FR AVI-1488 : CVE-2026-125350 exploitée activement (selon Google) + 14 autres CVE. Corrigé : Chrome 157.0.8103.50 (Windows/Linux), 157.0.8103.51 (Mac), Extended Stable 156.0.8078.96.",
+      "source": "CERT-FR AVI-1488",
+      "date": "10/11/2026",
+      "url": "https://cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1488/"
+    }
+  ]
+}

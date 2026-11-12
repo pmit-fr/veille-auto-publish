@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "date_key": "2026-11-12",
+  "page_date": "2026-11-12",
+  "items": [
+    {
+      "category": "systemes",
+      "product": "Windows 11 (KB5132061)",
+      "criticality": "important",
+      "impact": "La mise à jour de sécurité Windows 11 de novembre échoue à s'installer sur certains PC, qui restent alors sans les correctifs du mois.",
+      "technical_detail": "KB5132061 (10/11/2026, builds 26300.9974 / 26200.9974 / 26100.9974) : échecs d'installation vers 99 % avec les erreurs 0x800f0993, 0x80070306, 0x800f0989, signalés sur 25H2 et 26H2. La page KB Microsoft ne liste aucun problème connu à ce jour. Contournements non officiels : installer le .msu depuis le Microsoft Update Catalog, ou désactiver Windows Sandbox puis réessayer. ⚠️ NON CONFIRMÉ — source unique (Windows Latest), non reconnu officiellement par Microsoft.",
+      "source": "Windows Latest",
+      "date": "11/11/2026",
+      "url": "https://www.windowslatest.com/2026/11/11/microsoft-investigates-windows-11-kb5132061-issues-0x800f0993-0x80070306-and-0x800f0989-installation-errors/"
+    },
+    {
+      "category": "systemes",
+      "product": "macOS / Safari",
+      "criticality": "important",
+      "impact": "Une ancienne faille de Safari est utilisée par un groupe de pirates étatique pour attaquer des Mac sans aucun clic ; les Mac qui ne sont pas à jour sont exposés.",
+      "technical_detail": "CVE-2024-27834 (WebKit, Safari / macOS / iOS) : exploitation par APT29 en chaîne avec CVE-2025-43529 selon F5 Labs (11/11), CVSS 5.5 (CVE Brief indique 9.5). Ajoutée au catalogue CISA KEV le 04/11/2026 selon CVE Brief, échéance fédérale 18/11/2026. Corrigée à partir de macOS Sonoma 14.5 selon F5 Labs. ⚠️ NON CONFIRMÉ sur le catalogue CISA (page inaccessible) — sources secondaires.",
+      "source": "F5 Labs Weekly Threat Bulletin",
+      "date": "11/11/2026",
+      "url": "https://www.f5.com/labs/articles/weekly-threat-bulletin-november-11th-2026"
+    },
+    {
+      "category": "cloud_m365",
+      "product": "Outlook / Microsoft 365 Apps",
+      "criticality": "important",
+      "impact": "Rappel : la faille Outlook déjà utilisée par des pirates se corrige par la mise à jour d'Office, pas par Windows Update. Il faut vérifier que les postes ont bien reçu les deux.",
+      "technical_detail": "CVE-2026-124194 (usurpation, CVSS 6.5, exploitée activement, ajoutée au catalogue CISA KEV le 10/11 selon Malwarebytes) : correctif livré via les mises à jour Office / Microsoft 365 Apps. Mise à jour Windows 11 du mois : KB5132061. Malwarebytes signale aussi CVE-2026-116928 (Windows Search, CVSS 9.8, non exploitée).",
+      "source": "Malwarebytes Labs (ThreatDown)",
+      "date": "11/11/2026",
+      "url": "https://www.malwarebytes.com/blog/bugs/2026/11/microsoft-patch-tuesday-fixes-outlook-flaw-already-under-attack"
+    },
+    {
+      "category": "systemes",
+      "product": "Windows Server 2016 / 2019 / 2022",
+      "criticality": "info",
+      "impact": "Les mises à jour de novembre pour nos serveurs Windows sont identifiées ; sur Windows Server 2022, la console WSUS peut ne plus afficher le détail des erreurs de synchronisation.",
+      "technical_detail": "Selon AdminSignal : Server 2016 KB5131291 (14393.9688), Server 2019 KB5131085 (17763.9487), Server 2022 KB5131090 (20348.5870). Problème connu listé : WSUS sans détail d'erreur de synchronisation (2022). Problèmes Exchange OWA / boîte d'envoi et audio USB marqués résolus. Windows Server 2008 non mentionné. ⚠️ NON CONFIRMÉ — source unique, pages KB Microsoft non consultées.",
+      "source": "AdminSignal",
+      "date": "10/11/2026",
+      "url": "https://www.adminsignal.com/news/november-2026-patch-tuesday-admin-priorities"
+    },
+    {
+      "category": "systemes",
+      "product": "Windows 10 / 11 (Paint)",
+      "criticality": "info",
+      "impact": "Une faille dans l'application Paint de Windows peut permettre d'exécuter un programme malveillant sur un poste ; une mise à jour de Paint la corrige.",
+      "technical_detail": "CVE-2026-83844, exécution de code à distance, CVSS 8.1, Windows 10/11. Corrigée dans Paint 11.2609.401.0 ou supérieur. Aucune exploitation active signalée.",
+      "source": "F5 Labs Weekly Threat Bulletin",
+      "date": "11/11/2026",
+      "url": "https://www.f5.com/labs/articles/weekly-threat-bulletin-november-11th-2026"
+    },
+    {
+      "category": "autres_outils",
+      "product": "TeamViewer",
+      "criticality": "info",
+      "impact": "Le CERT pakistanais alerte sur une faille TeamViewer déjà corrigée fin octobre ; aucun piratage signalé, il suffit d'être à jour.",
+      "technical_detail": "Avis PKCERT rapporté par Daily Pakistan (11/11) sur CVE-2026-111585 (CVSS 8.8, débordement de tas lors du traitement de l'écran distant). Corrigée en TeamViewer 15.83 (bulletin TV-2026-1011 du 27/10, déjà rapporté le 30/10). Pas d'exploitation connue.",
+      "source": "Daily Pakistan (avis PKCERT)",
+      "date": "11/11/2026",
+      "url": "https://en.dailypakistan.com.pk/11-Nov-2026/teamviewer-users-at-risk-as-pakistan-issues-urgent-cyberattack-warning"
+    }
+  ]
+}

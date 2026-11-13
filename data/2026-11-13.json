@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "date_key": "2026-11-13",
+  "page_date": "2026-11-13",
+  "items": [
+    {
+      "category": "systemes",
+      "product": "Windows 11 / Windows Server 2025",
+      "criticality": "important",
+      "impact": "Un chercheur a publié un outil qui permet à un programme malveillant déjà présent sur un PC Windows 11 récent d'en prendre le contrôle total ; Microsoft n'a pas encore de correctif.",
+      "technical_detail": "« SignDrop » : élévation de privilèges locale vers SYSTEM via le mécanisme d'authentification des journaux CLFS. Aucun CVE attribué, aucun correctif, non confirmé par Microsoft. Code d'exploitation public (GitHub, publié le 10/11). Aucune exploitation dans la nature signalée, absent du catalogue CISA KEV. Versions citées : Windows 11 26H2, Windows Server 2025 (builds expérimentales) ; concerne les systèmes où HKLM\\SYSTEM\\CurrentControlSet\\Services\\CLFS\\Authentication vaut 0 ou 1. Windows 10 et Server 2008–2022 non mentionnés. Ne pas passer la valeur à 2 ou 3 (désactive la protection CLFS). Te…",
+      "source": "The Hacker News",
+      "date": "12/11/2026",
+      "url": "https://thehackernews.com/2026/11/new-signdrop-zero-day-exploit-turns.html"
+    },
+    {
+      "category": "systemes",
+      "product": "Windows 11 (KB5132061)",
+      "criticality": "important",
+      "impact": "Microsoft confirme que la mise à jour de sécurité de novembre ne s'installe pas sur certains PC Windows 11 ; la réparation se fait automatiquement d'ici 48 h.",
+      "technical_detail": "Mise à jour de sécurité de novembre (KB5132061) en échec avec les erreurs 0x80070306 / 0x800f0989 / 0x800f0993, uniquement sur les postes ayant installé la préversion non sécurité d'octobre (KB5127936). Réparation côté Microsoft en 24 à 48 h à partir du 11/11 18h00 (heure de Paris, 10h PT), puis installation via Windows Update. Contacter le support Microsoft si l'échec persiste après 48 h. Incident WI1549693 (centre d'administration). Confirme l'item NON CONFIRMÉ du 12/11.",
+      "source": "BleepingComputer",
+      "date": "12/11/2026",
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-confirms-kb5132061-installation-issues-0x80070306-0x800f0989-0x800f0993-errors/"
+    },
+    {
+      "category": "autres_outils",
+      "product": "GitLab",
+      "criticality": "info",
+      "impact": "Le CERT-FR signale une faille dans GitLab ; à vérifier uniquement si l'entreprise héberge sa propre instance GitLab.",
+      "technical_detail": "CERTFR-2026-AVI-1520 « Vulnérabilité dans GitLab », publié le 12/11/2026. Détails (CVE, versions corrigées) : voir l'avis CERT-FR.",
+      "source": "CERT-FR",
+      "date": "12/11/2026",
+      "url": "https://cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1520/"
+    }
+  ]
+}

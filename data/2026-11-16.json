@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "date_key": "2026-11-16",
+  "page_date": "2026-11-16",
+  "items": [
+    {
+      "category": "cloud_m365",
+      "product": "Microsoft 365 (Outlook, Teams, Copilot)",
+      "criticality": "important",
+      "impact": "Outlook, Teams et Copilot ont été perturbés dans le monde du 12 au 14 novembre ; Microsoft annonce le service rétabli depuis samedi et précise qu'il ne s'agit pas d'une attaque.",
+      "technical_detail": "Cause selon Microsoft : problème technique d'infrastructure introduit lors d'une mise à niveau de capacité réseau, puis surcharge des serveurs restants après la défaillance de certains serveurs ; « pas lié à une cyberattaque ni à l'IA ». Pic de 48 124 signalements Downdetector (US) le 12/11 vers 13h21 EST. Rétablissement complet annoncé le 14/11. Aucun KB Windows ni version d'Outlook en cause. Identifiants d'incident EX1550543 (Exchange Online) et MO1550821 (Microsoft 365) : ⚠️ NON CONFIRMÉ — relayés par StatusStack/WindowsForum, portail Microsoft 365 Status non consulté. Rapport post-inciden…",
+      "source": "Forbes",
+      "date": "13/11/2026 (MAJ 14/…",
+      "url": "https://www.forbes.com/sites/kateoflahertyuk/2026/11/13/microsoft-outage-what-happened-and-what-to-do-next/"
+    }
+  ]
+}

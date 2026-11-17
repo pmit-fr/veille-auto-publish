@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "date_key": "2026-11-17",
+  "page_date": "2026-11-17",
+  "items": [
+    {
+      "category": "systemes",
+      "product": "Microsoft Edge (Windows)",
+      "criticality": "info",
+      "impact": "Le navigateur Edge installé sur nos PC Windows reçoit une série de correctifs de sécurité : il faut s'assurer qu'il se met bien à jour.",
+      "technical_detail": "Environ 70 CVE (bulletins Microsoft du 13/11/2026, ex. CVE-2026-125342, CVE-2026-126922). Versions concernées : Edge 157.x < 157.0.4341.57 et Edge < 156.0.4314.80. Risque « non spécifié par l'éditeur ». Aucune exploitation active mentionnée par le CERT-FR.",
+      "source": "CERT-FR (CERTFR-2026-AVI-1546)",
+      "date": "16/11/2026",
+      "url": "https://cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1546/"
+    },
+    {
+      "category": "autres_outils",
+      "product": "ScreenConnect (PMAD, hors parc)",
+      "criticality": "info",
+      "impact": "Des pirates utilisent un outil de prise en main à distance concurrent (ScreenConnect, que nous n'utilisons pas) pour infecter les PC des techniciens d'infogérance. TeamViewer et AnyDesk ne sont pas concernés.",
+      "technical_detail": "CVE-2026-84869 (CVSS 9.9, client technicien ScreenConnect), publiée par ConnectWise le 08/09/2026, au catalogue CISA KEV depuis le 11/09/2026. Exploitation observée les 12 et 13/11/2026 : fichier batch poussé par un « invité », téléchargement d'un faux WindowsUpdate.msi et installation d'un client ScreenConnect pirate. Correctif : clients technicien 26.6.5 ou plus (mettre à jour le serveur seul ne suffit pas) ; contournement : retirer la permission TransferFiles.",
+      "source": "Huntress",
+      "date": "16/11/2026",
+      "url": "https://www.huntress.com/blog/cve-2026-84869-screenconnect-technician-exploitation"
+    }
+  ]
+}

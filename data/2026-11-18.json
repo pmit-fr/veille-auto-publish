@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "date_key": "2026-11-18",
+  "page_date": "2026-11-18",
+  "items": [
+    {
+      "category": "cloud_m365",
+      "product": "Microsoft 365 Apps / SharePoint",
+      "criticality": "important",
+      "impact": "Une faille dans les applications Office de Microsoft 365 peut permettre à un pirate de lancer un programme malveillant sur le poste : il faut appliquer la mise à jour Office.",
+      "technical_detail": "CVE-2026-124222 (Office) et CVE-2026-124223 (SharePoint), bulletins Microsoft du 16/11/2026. Concernés : Microsoft 365 Apps for Enterprise 32/64 bits ; SharePoint Server Subscription Edition < 16.0.20326.20278. Risques : exécution de code à distance, élévation de privilèges. SharePoint Online, 2016 et 2019 non listés. Pas de CVSS ni d'exploitation mentionnés par le CERT-FR.",
+      "source": "CERT-FR (CERTFR-2026-AVI-1555)",
+      "date": "17/11/2026",
+      "url": "https://cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1555/"
+    },
+    {
+      "category": "cloud_m365",
+      "product": "Microsoft 365",
+      "criticality": "info",
+      "impact": "Des utilisateurs ont signalé des soucis sur Outlook, Excel et la connexion Microsoft 365, mais Microsoft n'a confirmé aucune nouvelle panne.",
+      "technical_detail": "⚠️ NON CONFIRMÉ — source unique. Aucun identifiant d'incident Microsoft pour le 17/11. Distinct de la panne mondiale du 12/11 (incidents EX1550543 et MO1550821, rapport post-incident publié).",
+      "source": "WindowsForum",
+      "date": "17/11/2026",
+      "url": "https://windowsforum.com/news/microsoft-365-outage-reports-on-november-17-outlook-excel-and-sign-in-issues-unconfirmed.452708/"
+    },
+    {
+      "category": "autres_outils",
+      "product": "OpenSSL",
+      "criticality": "info",
+      "impact": "Des failles dans une brique de chiffrement très répandue peuvent permettre de faire planter à distance des services qui l'utilisent.",
+      "technical_detail": "CVE-2026-107493, CVE-2026-124709, CVE-2026-35190 (avis OpenSSL du 17/11/2026). Concernés : 3.5.x < 3.5.10, 4.0.x < 4.0.4, 4.1.x < 4.1.1. Risque : déni de service à distance. Pas d'exploitation mentionnée.",
+      "source": "CERT-FR (CERTFR-2026-AVI-1554)",
+      "date": "17/11/2026",
+      "url": "https://cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1554/"
+    },
+    {
+      "category": "autres_outils",
+      "product": "GitLab",
+      "criticality": "info",
+      "impact": "Une série de failles dans GitLab peut permettre d'accéder à des données ou de rendre le service indisponible, si l'outil est utilisé en interne.",
+      "technical_detail": "37 CVE, bulletin GitLab du 16/11/2026. CE/EE concernés : < 19.3.9, 19.4.x < 19.4.8, 19.5.x < 19.5.6. Corrigé en 19.3.9 / 19.4.8 / 19.5.6. Risques : confidentialité, contournement de politique, DoS, SSRF, XSS.",
+      "source": "CERT-FR (CERTFR-2026-AVI-1552)",
+      "date": "17/11/2026",
+      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1552/"
+    }
+  ]
+}

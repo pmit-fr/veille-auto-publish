@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "date_key": "2026-11-19",
+  "page_date": "2026-11-19",
+  "items": [
+    {
+      "category": "reseau_securite",
+      "product": "pfSense / Netgate",
+      "criticality": "important",
+      "impact": "Plusieurs failles permettent à un pirate d'exécuter du code ou de prendre plus de droits sur nos routeurs pfSense : une mise à jour est disponible.",
+      "technical_detail": "17 CVE (CVE-2026-111214 à -111233). Risques : RCE, élévation de privilèges, DoS, XSS, contournement de politique. Affectés : pfSense CE < 2.9.1, pfSense Plus < 26.07.1. Bulletins Netgate pfSense-SA-26_23 à SA-26_41 (17/11/2026). Pas d'exploitation mentionnée, pas de CVSS publié par CERT-FR.",
+      "source": "CERT-FR (CERTFR-2026-AVI-1557)",
+      "date": "18/11/2026",
+      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1557"
+    },
+    {
+      "category": "reseau_securite",
+      "product": "Ubiquiti UniFi Access",
+      "criticality": "important",
+      "impact": "Si nous utilisons l'application de contrôle d'accès UniFi Access, un pirate pourrait en prendre le contrôle : il faut la mettre à jour (les switchs UniFi ne sont pas cités).",
+      "technical_detail": "⚠️ NON CONFIRMÉ — source unique. UniFi Access Application ≤ 4.3.22 → corrigé en 4.3.24. CVE-2026-132802/-132803/-132804/-132808 (CVSS 9.9), -132807 (9.0), -132806 (8.8), -132805 (8.3). Exploitation : aucune confirmée. Bulletin officiel Ubiquiti non consulté directement.",
+      "source": "SecurityOnline (cite le bulletin Ubiquiti 073 du 18/11/2026)",
+      "date": "19/11/2026",
+      "url": "https://securityonline.info/unifi-access-vulnerabilities-4-3-24/"
+    },
+    {
+      "category": "autres_outils",
+      "product": "Oracle Java SE / OpenJDK",
+      "criticality": "important",
+      "impact": "Une faille dans Java peut permettre à un pirate de lancer du code à distance sur les serveurs et applications qui utilisent Java : il faut appliquer les mises à jour Oracle.",
+      "technical_detail": "CVE-2026-114938 « Java4Shell » (décodeur Base64 OpenJDK, processeurs x86-64 avec AVX-512 VBMI). RCE / DoS à distance. Affectés : Java SE 8u511b33-perf, 17.0.21.0.3, 21.0.13.0.3, 25.0.5.0.3, 27.0.1.0.3 ; GraalVM. Contournements temporaires : -XX:-UseBASE64Intrinsics ou -XX:UseAVX=2. Pas d'exploitation signalée. Avis associé : CERTFR-2026-AVI-1562 (CPU Oracle du 17/11, 18 CVE).",
+      "source": "CERT-FR (CERTFR-2026-ALE-016)",
+      "date": "18/11/2026",
+      "url": "https://cert.cyber.gouv.fr/alerte/CERTFR-2026-ALE-016"
+    },
+    {
+      "category": "autres_outils",
+      "product": "F5 NGINX",
+      "criticality": "important",
+      "impact": "Un pirate peut prendre le contrôle à distance d'un serveur web NGINX sans mot de passe ; un code d'attaque est déjà public.",
+      "technical_detail": "CVE-2026-123633, CVE-2026-123007 (preuve de concept publique). RCE non authentifiée via HTTP/2. Affectés : NGINX OSS < 1.30.7 et 1.31.x < 1.31.9, NGINX Plus (voir F5 K000163926 / K000163928). Contournement : désactiver HTTP/2.",
+      "source": "CERT-FR (CERTFR-2026-ALE-017)",
+      "date": "18/11/2026",
+      "url": "https://cert.cyber.gouv.fr/alerte/CERTFR-2026-ALE-017"
+    },
+    {
+      "category": "autres_outils",
+      "product": "Google Chrome",
+      "criticality": "info",
+      "impact": "Une nouvelle version de Chrome corrige de nombreuses failles : les postes doivent se mettre à jour.",
+      "technical_detail": "Chrome < 158.0.8127.36 (Windows/Linux) et < 158.0.8127.37 (Mac). CVE-2026-121101 et CVE-2026-130904 à -131106. Risque non spécifié par l'éditeur, pas d'exploitation mentionnée.",
+      "source": "CERT-FR (CERTFR-2026-AVI-1559)",
+      "date": "18/11/2026",
+      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1559"
+    },
+    {
+      "category": "autres_outils",
+      "product": "Mozilla Firefox",
+      "criticality": "info",
+      "impact": "Firefox reçoit des correctifs de sécurité : les postes qui l'utilisent doivent se mettre à jour.",
+      "technical_detail": "CERTFR-2026-AVI-1560 — détail des versions non consulté (lien vers la liste des avis CERT-FR).",
+      "source": "CERT-FR (CERTFR-2026-AVI-1560)",
+      "date": "18/11/2026",
+      "url": "https://www.cert.cyber.gouv.fr/avis/"
+    }
+  ]
+}

@@ -6,8 +6,10 @@ le site SharePoint dédié "Veillepublication") et génère la page HTML
 publiée sur GitHub Pages, en écrasant la version précédente.
 
 Archive aussi le rapport du jour dans le dépôt (dossier data/) et régénère
-un petit historique de la semaine en cours (du lundi à aujourd'hui), avec
-une barre latérale de navigation entre les jours déjà publiés.
+l'historique complet, avec une barre latérale de navigation entre les jours
+déjà publiés : semaine en cours en clair, semaines du mois en cours
+listées, mois terminés repliés sous leur nom, années terminées repliées
+sous leur numéro.
 
 AUCUN appel à l'API Anthropic ici — ce script ne fait que lire un fichier
 JSON déjà produit ailleurs et le transformer en pages HTML. Objectif :
@@ -325,13 +327,25 @@ def paris_today(now_utc: datetime | None = None) -> date:
     return (now_utc + timedelta(hours=offset_hours)).date()
 
 
+def _parse_report_date(raw_date) -> date | None:
+    """Lit la date indiquée DANS le fichier JSON (format AAAA-MM-JJ). C'est
+    elle qui décide sous quel jour le rapport est archivé — pas l'heure à
+    laquelle le workflow tourne. Renvoie None si absente ou invalide."""
+    if not isinstance(raw_date, str):
+        return None
+    try:
+        return date.fromisoformat(raw_date.strip()[:10])
+    except ValueError:
+        return None
+
+
 def week_monday(d: date) -> date:
     return d - timedelta(days=d.weekday())
 
 
 # ─────────────────────────────────────────────────────────────────────────
 # Archivage quotidien (dossier data/, committé par le workflow via git —
-# pas par ce script) et historique de la semaine en cours.
+# pas par ce script) et historique complet.
 # ─────────────────────────────────────────────────────────────────────────
 def _archive_path(archive_dir: str, d: date) -> str:
     return os.path.join(archive_dir, f"{d.isoformat()}.json")
@@ -398,15 +412,39 @@ def _day_item_html(d: date, active_date: date, today: date, location: str) -> st
     return f'<a class="day-item" href="{_day_link(d, today, location)}">{inner}</a>'
 
 
+def _week_label(monday: date) -> str:
+    sunday = monday + timedelta(days=6)
+    if monday.month == sunday.month:
+        return f"Semaine du {monday.day} au {sunday.day} {FR_MONTHS[monday.month - 1]}"
+    return f"Semaine du {monday.day} {FR_MONTHS[monday.month - 1]} au {sunday.day} {FR_MONTHS[sunday.month - 1]}"
+
+
+def _week_block(monday: date, days: list[date], active_date: date, today: date, location: str) -> str:
+    """Une semaine repliable (ouverte seulement si elle contient le jour affiché)."""
+    open_attr = " open" if active_date in days else ""
+    entries = "".join(_day_item_html(d, active_date, today, location) for d in days)
+    return f'''<details class="week-group"{open_attr}>
+  <summary>{_week_label(monday)}</summary>
+  <nav class="day-list day-list-secondary">
+    {entries}
+  </nav>
+</details>'''
+
+
 def build_sidebar(all_dates: list[date], today: date, active_date: date, location: str) -> str:
     """location : "root" (page à la racine, index.html) ou "archive"
     (pages dans public/archive/), pour calculer les bons liens relatifs.
 
-    all_dates : TOUS les jours archivés (pas seulement la semaine en cours).
-    La semaine en cours reste affichée en clair en haut ; les semaines
-    précédentes sont regroupées par semaine dans des blocs repliés, du plus
-    récent au plus ancien, pour ne pas alourdir la page malgré l'historique
-    qui grandit indéfiniment."""
+    all_dates : TOUS les jours archivés. Organisation de la barre latérale :
+      - "Cette semaine" : les jours de la semaine en cours, en clair ;
+      - "Ce mois-ci" : les autres semaines du mois en cours, toutes listées
+        (chaque semaine se déplie pour montrer ses jours) ;
+      - "Archives" : les mois terminés de l'année en cours, repliés sous
+        leur nom, puis les années terminées, repliées sous leur numéro
+        (chacune contenant ses mois, eux-mêmes repliés).
+    Une semaine est rangée dans le mois (et l'année) de son lundi.
+    Le mois / l'année / la semaine qui contient la page affichée est
+    ouvert(e) automatiquement, pour qu'on voie toujours où on se trouve."""
     if not all_dates:
         return ""
     current_monday = week_monday(today)
@@ -415,36 +453,69 @@ def build_sidebar(all_dates: list[date], today: date, active_date: date, locatio
 
     current_entries = "".join(_day_item_html(d, active_date, today, location) for d in current_week)
 
-    # Regroupe les jours précédents par semaine (lundi de cette semaine-là),
-    # la plus récente en premier.
+    # Regroupe les jours précédents par semaine (lundi de cette semaine-là).
     weeks: dict[date, list[date]] = {}
     for d in previous:
         weeks.setdefault(week_monday(d), []).append(d)
 
-    week_blocks = []
+    # Répartit les semaines : mois en cours d'un côté, mois terminés de
+    # l'autre (clé = (année, mois) du lundi), du plus récent au plus ancien.
+    this_month_blocks: list[str] = []
+    months: dict[tuple[int, int], list[str]] = {}
+    months_with_active: set[tuple[int, int]] = set()
     for monday in sorted(weeks.keys(), reverse=True):
         days = weeks[monday]
-        sunday = monday + timedelta(days=6)
-        if monday.month == sunday.month:
-            label = f"Semaine du {monday.day} au {sunday.day} {FR_MONTHS[monday.month - 1]}"
+        block = _week_block(monday, days, active_date, today, location)
+        key = (monday.year, monday.month)
+        if key == (today.year, today.month):
+            this_month_blocks.append(block)
         else:
-            label = f"Semaine du {monday.day} {FR_MONTHS[monday.month - 1]} au {sunday.day} {FR_MONTHS[sunday.month - 1]}"
-        contains_active = any(d == active_date for d in days)
-        entries = "".join(_day_item_html(d, active_date, today, location) for d in days)
-        open_attr = " open" if contains_active else ""
-        week_blocks.append(f'''<details class="week-group"{open_attr}>
-  <summary>{label}</summary>
-  <nav class="day-list day-list-secondary">
-    {entries}
-  </nav>
+            months.setdefault(key, []).append(block)
+            if active_date in days:
+                months_with_active.add(key)
+
+    def month_block(key: tuple[int, int]) -> str:
+        year, month = key
+        open_attr = " open" if key in months_with_active else ""
+        label = FR_MONTHS[month - 1].capitalize()
+        count = len(months[key])
+        return f'''<details class="month-group"{open_attr}>
+  <summary>{label} <span class="group-count">{count}</span></summary>
+  <div class="group-body">
+    {"".join(months[key])}
+  </div>
+</details>'''
+
+    # Mois terminés de l'année en cours : directement sous "Archives".
+    current_year_months = sorted((k for k in months if k[0] == today.year), reverse=True)
+    # Années terminées : un bloc par année, contenant ses mois.
+    past_years = sorted({k[0] for k in months if k[0] != today.year}, reverse=True)
+
+    archive_parts = [month_block(k) for k in current_year_months]
+    for year in past_years:
+        year_months = sorted((k for k in months if k[0] == year), reverse=True)
+        open_attr = " open" if any(k in months_with_active for k in year_months) else ""
+        archive_parts.append(f'''<details class="year-group"{open_attr}>
+  <summary>{year}</summary>
+  <div class="group-body">
+    {"".join(month_block(k) for k in year_months)}
+  </div>
 </details>''')
 
-    previous_html = (
-        f'''<div class="sidebar-label sidebar-label-secondary">Semaines précédentes</div>
-  <div class="week-groups">
-    {"".join(week_blocks)}
-  </div>'''
-        if week_blocks
+    this_month_html = (
+        f'''<div class="sidebar-label sidebar-label-secondary">Ce mois-ci</div>
+    <div class="week-groups">
+      {"".join(this_month_blocks)}
+    </div>'''
+        if this_month_blocks
+        else ""
+    )
+    archives_html = (
+        f'''<div class="sidebar-label sidebar-label-secondary">Archives</div>
+    <div class="week-groups">
+      {"".join(archive_parts)}
+    </div>'''
+        if archive_parts
         else ""
     )
 
@@ -454,7 +525,8 @@ def build_sidebar(all_dates: list[date], today: date, active_date: date, locatio
     <nav class="day-list">
       {current_entries}
     </nav>
-    {previous_html}
+    {this_month_html}
+    {archives_html}
   </div>
 </aside>'''
 
@@ -700,6 +772,50 @@ def build_html(page_date: str, items: list[dict], sidebar_html: str) -> str:
   details.week-group summary::before {{ content: "▸ "; }}
   details.week-group[open] summary::before {{ content: "▾ "; }}
   .day-list-secondary {{ margin: 2px 0 6px 10px; }}
+  details.month-group > summary,
+  details.year-group > summary {{
+    cursor: pointer;
+    list-style: none;
+    padding: 7px 10px;
+    border-radius: 8px;
+    color: var(--text-muted);
+    font-size: .82rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }}
+  details.year-group > summary {{
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    color: var(--text);
+  }}
+  details.month-group > summary::-webkit-details-marker,
+  details.year-group > summary::-webkit-details-marker {{ display: none; }}
+  details.month-group > summary:hover,
+  details.year-group > summary:hover {{ background: var(--surface-2); color: var(--text); }}
+  details.month-group > summary::before,
+  details.year-group > summary::before {{ content: "▸"; font-size: .75rem; }}
+  details.month-group[open] > summary::before,
+  details.year-group[open] > summary::before {{ content: "▾"; }}
+  .group-count {{
+    margin-left: auto;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: .68rem;
+    font-weight: 500;
+    color: var(--text-faint);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0 7px;
+  }}
+  .group-body {{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin: 2px 0 6px 8px;
+    padding-left: 6px;
+    border-left: 1px solid var(--border);
+  }}
   .eyebrow {{
     font-family: "IBM Plex Mono", ui-monospace, monospace;
     font-size: .78rem;
@@ -930,7 +1046,17 @@ def main() -> int:
         print(f"ERREUR pendant la récupération/génération du rapport : {exc}", file=sys.stderr)
         return 1
 
-    today = paris_today()
+    # Le rapport est archivé sous la date écrite DANS le fichier JSON, pas
+    # sous la date du jour où le workflow tourne : si le workflow passe
+    # avant que le rapport du jour soit prêt (ou en retard le lendemain),
+    # le rapport de la veille n'est plus enregistré à la mauvaise date.
+    # Repli sur la date du jour à Paris si la date du JSON est absente,
+    # invalide ou dans le futur.
+    paris_now = paris_today()
+    report_day = _parse_report_date(raw_date)
+    if report_day is None or report_day > paris_now:
+        report_day = paris_now
+    today = report_day
 
     try:
         # 1. Archiver le rapport du jour (le workflow committe data/ ensuite).
@@ -958,6 +1084,7 @@ def main() -> int:
         print(f"ERREUR en générant/écrivant les pages : {exc}", file=sys.stderr)
         return 1
 
+    print(f"Rapport archivé sous la date : {today.isoformat()}")
     print(f"Page du jour générée : {os.path.join(output_dir, 'index.html')}")
     print(f"Historique complet ({len(all_dates)} jour(s) archivé(s)) régénéré dans {os.path.join(output_dir, 'archive')}")
     return 0

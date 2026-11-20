@@ -2,7 +2,8 @@ name: Veille technologique — publication quotidienne (GitHub Pages)
 
 on:
   schedule:
-    - cron: "35 7 * * 1-5"
+    - cron: "17 8 * * 1-5"    # 9h17 Paris l'hiver / 10h17 l'été — après le rapport de 9h03
+    - cron: "47 10 * * 1-5"   # 2e passage de sécurité (11h47 / 12h47)
   workflow_dispatch: {}
 
 permissions:

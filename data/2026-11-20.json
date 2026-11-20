@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "date_key": "2026-11-20",
+  "page_date": "2026-11-20",
+  "items": [
+    {
+      "category": "autres_outils",
+      "product": "Synology DSM",
+      "criticality": "critique",
+      "impact": "Des pirates utilisent une faille des NAS Synology pour en prendre le contrôle sans mot de passe et y déposer un rançongiciel : il faut vérifier que nos NAS sont à jour.",
+      "technical_detail": "CVE-2024-10441 (CVSS 9.8), DSM et BeeStation OS, encodage/échappement de sortie incorrect → exécution de code non authentifiée. Corrigé par Synology en 2024. Ajoutée au KEV le 18/11/2026 ; échéance agences fédérales US : 21/11/2026. Versions corrigées non précisées dans les articles (voir avis Synology).",
+      "source": "The Hacker News / Security Affairs (CISA KEV)",
+      "date": "19/11/2026",
+      "url": "https://thehackernews.com/2026/11/cisa-warns-of-4-exploited-flaws-linked.html"
+    },
+    {
+      "category": "autres_outils",
+      "product": "Synology DSM",
+      "criticality": "important",
+      "impact": "La faille NGINX signalée hier touche aussi nos NAS Synology : un pirate pourrait en prendre le contrôle à distance. Le correctif est annoncé pour aujourd'hui ; en attendant, on peut désactiver HTTP/2.",
+      "technical_detail": "Synology-SA-26:20 NGINX2Root. CVE-2026-123007, CVSS 8.1 (CWE-787). DSM 7.4 → 7.4.1-90080-2 et DSM 7.3 → 7.3.2-86009-6, prévus d'ici le 20/11/2026 (statut Ongoing). DSM 7.2.2/7.2.1 : passer en 7.3.2-86009-6. DSM 7.1, DSM Enterprise 1.0, APM, BeeStation OS 1.5 : en cours. SRM non concerné. Contournement : désactiver HTTP/2 (Panneau de configuration > Réseau > Connectivité).",
+      "source": "Synology",
+      "date": "19/11/2026",
+      "url": "https://www.synology.com/en-global/security/advisory/Synology_SA_26_20"
+    },
+    {
+      "category": "autres_outils",
+      "product": "Synology DSM",
+      "criticality": "important",
+      "impact": "Une faille du module de connexion OAuth des NAS Synology permettrait à un pirate de lire ou modifier des fichiers sans mot de passe ; on peut désactiver ce module en attendant.",
+      "technical_detail": "⚠️ NON CONFIRMÉ — avis officiel Synology non trouvé. Synology-SA-26:21, CVE-2026-120382, CVSS 9.8. Lecture/écriture de fichiers arbitraires ou DoS. Contournement : désactiver le paquet OAuth Service. Versions corrigées selon Brandefense : ≥ 6.2.4-25556-9 et ≥ 7.1.1-42962-10. Pas d'exploitation signalée.",
+      "source": "GBHackers, Brandefense",
+      "date": "19/11/2026",
+      "url": "https://gbhackers.com/synology-fixes-critical-security-flaws/"
+    },
+    {
+      "category": "systemes",
+      "product": "Windows 11",
+      "criticality": "important",
+      "impact": "Une personne ayant le PC Windows 11 entre les mains pourrait, depuis l'écran de verrouillage, contourner le chiffrement BitLocker et accéder à la machine ; aucun correctif n'existe pour l'instant.",
+      "technical_detail": "⚠️ NON CONFIRMÉ — source unique. FastUnlock (chercheur Chaotic Eclipse). Abus du Narrateur depuis l'écran « J'ai oublié mon code PIN » → exécution de code en tant que WsiAccount. Testé sur Windows 11 26H2 avec le correctif de novembre 2026 ; autres versions non testées. Accès physique requis + compte lié à un compte en ligne. Pas de CVE, pas d'exploitation constatée.",
+      "source": "Security Affairs",
+      "date": "19/11/2026",
+      "url": "https://securityaffairs.com/203537/hacking/chaotic-eclipse-releases-fastunlock-a-new-windows-zero-day-vulnerability.html"
+    },
+    {
+      "category": "reseau_securite",
+      "product": "UniFi Access",
+      "criticality": "info",
+      "impact": "L'information d'hier sur l'application de contrôle d'accès UniFi Access est maintenant confirmée par plusieurs sources : si nous l'utilisons, il faut la mettre à jour (les switchs UniFi ne sont pas concernés).",
+      "technical_detail": "Mise à jour de l'élément du 19/11. Bulletin Ubiquiti 073 (18/11/2026). UniFi Access Application ≤ 4.3.22 → corrigé en 4.3.24. CVE-2026-132802/-132803/-132804/-132808 (CVSS 9.9), -132807 (9.0), -132806 (8.8), -132805 (8.3). Aucune exploitation confirmée.",
+      "source": "Cyber Security News, GBHackers, CVE Brief",
+      "date": "19/11/2026",
+      "url": "https://cybersecuritynews.com/ubiquiti-warns-critical-unifi-access-flaws/"
+    }
+  ]
+}

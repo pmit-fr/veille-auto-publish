@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "date_key": "2026-11-23",
+  "page_date": "2026-11-23",
+  "items": [
+    {
+      "category": "autres_outils",
+      "product": "Synology DSM (SA-26:21)",
+      "criticality": "critique",
+      "impact": "Une faille des NAS Synology permet à un pirate de lire ou modifier des fichiers sans mot de passe : il faut mettre à jour DSM, ou désactiver le module de connexion OAuth si la mise à jour n'existe pas encore pour notre version.",
+      "technical_detail": "CVE-2026-120382, CVSS 3.1 9.8 (CWE-88, API OAuth de DSM). Avis désormais listé sur la page officielle Synology (Critical, statut Ongoing, mis à jour 20/11/2026 16:25 UTC+8). Correctifs (révision 2 du 20/11, citée par Rescana) : DSM 7.4 → 7.4.1-90080-2 ; DSM 7.3 → 7.3.2-86009-6. DSM 7.2.2, 7.2.1, 7.1 et BeeStation OS 1.5 : correctif en cours. Contournement : désactiver le paquet « OAuth Service ». Synology : aucune exploitation observée ; aucun exploit public selon Rescana.",
+      "source": "Synology Security Advisory / Rescana",
+      "date": "20/11/2026",
+      "url": "https://www.synology.com/en-global/security/advisory/Synology_SA_26_21"
+    },
+    {
+      "category": "autres_outils",
+      "product": "Synology DSM (SA-26:20 NGINX2Root)",
+      "criticality": "critique",
+      "impact": "Les mises à jour qui empêchent un pirate de prendre le contrôle à distance de nos NAS Synology via leur serveur web sont sorties : il faut les installer, ou désactiver HTTP/2 en attendant.",
+      "technical_detail": "CVE-2026-123007, CVSS 8.1 (CWE-787, NGINX HTTP/2) ; avis classé Critical par Synology, statut Ongoing (mis à jour 20/11/2026). Fichiers DSM 7.3.2-86009-6 et 7.4.1-90080-2 présents sur l'archive Synology (19–20/11, selon Rescana). DSM 7.2.2/7.2.1 : passer en 7.3.2-86009-6 ; DSM 7.1, BeeStation OS 1.5, DSM Enterprise 1.0, APM : en cours ; SRM non concerné. PoC public (Rapid7, hors DSM) ; aucune exploitation observée. Contournement : désactiver HTTP/2 (Panneau de configuration > Réseau > Connectivité).",
+      "source": "Synology Security Advisory / Rescana",
+      "date": "20/11/2026",
+      "url": "https://www.synology.com/security/advisory/Synology_SA_26_20"
+    },
+    {
+      "category": "cloud_m365",
+      "product": "Microsoft 365",
+      "criticality": "info",
+      "impact": "Des utilisateurs ont signalé des problèmes d'accès à Microsoft 365 dimanche soir, mais Microsoft n'a confirmé aucun incident.",
+      "technical_detail": "⚠️ NON CONFIRMÉ — source unique. Alerte Downdetector du 22/11/2026 à 21h22 EST (≈ 03h22 heure de Paris le 23/11). Aucun incident publié par Microsoft au moment de l'article. Rapport final de Microsoft sur la panne des 12–13/11 (EX1550543, MO1550821) qui aurait été publié le 20/11 : information de seconde main, non vérifiée.",
+      "source": "WindowsForum (Downdetector)",
+      "date": "22/11/2026",
+      "url": "https://windowsforum.com/news/microsoft-365-outage-reports-on-november-22-downdetector-alert-unconfirmed-by-microsoft.453694/"
+    },
+    {
+      "category": "autres_outils",
+      "product": "GitLab",
+      "criticality": "info",
+      "impact": "Une faille corrigée dans GitLab ; à mettre à jour uniquement si nous utilisons un serveur GitLab.",
+      "technical_detail": "Avis CERTFR-2026-AVI-1591 du 20/11/2026 (détails CVE/versions dans l'avis). Autres avis CERT-FR du 20/11 hors parc : VMware (1598), IBM (1597), noyaux Linux (1592–1596), Siemens (1590), Moxa (1589), Mattermost (1588), Tomcat (1587), Keycloak (1586), Metabase (1585), Palo Alto (1584), Tenable (1583), Citrix (1582), Moodle (1581). Aucun avis ni alerte CERT-FR les 21 et 22/11.",
+      "source": "CERT-FR",
+      "date": "20/11/2026",
+      "url": "https://cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1591/"
+    },
+    {
+      "category": "autres_outils",
+      "product": "Hors parc — CISA KEV (VMware vCenter, Cisco Expressway, Apache Roller, SAP)",
+      "criticality": "info",
+      "impact": "Quatre failles exploitées par des pirates ont été signalées par l'agence américaine CISA ; aucun de ces produits ne fait partie de notre parc.",
+      "technical_detail": "CVE-2026-123890 VMware vCenter (CVSS 9.8, lié au groupe Armory Castle / UNC5221) ; CVE-2026-76466 Cisco Expressway (9.8) ; CVE-2026-129448 Apache Roller (9.8) ; CVE-2025-42884 SAP NetWeaver Enterprise Portal (6.5). Ajout KEV 20/11/2026, échéance agences US 23/11/2026.",
+      "source": "The Hacker News (alerte CISA)",
+      "date": "20/11/2026",
+      "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-vmware-cisco.html"
+    }
+  ]
+}

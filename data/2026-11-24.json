@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "date_key": "2026-11-24",
+  "page_date": "2026-11-24",
+  "items": [
+    {
+      "category": "reseau_securite",
+      "product": "Palo Alto Networks (hors parc)",
+      "criticality": "info",
+      "impact": "Des failles ont été corrigées dans des pare-feux d'une autre marque que les nôtres ; rien à faire chez nous.",
+      "technical_detail": "Avis CERTFR-2026-AVI-1600 du 23/11/2026 (détails CVE/versions dans l'avis). Autres publications CERT-FR du 23/11, hors parc : AVI-1599 SPIP, AVI-1601 Laravel (déni de service à distance, laravel/framework 12.x < 12.74.0 et 13.x < 13.38.0), bulletin hebdomadaire CERTFR-2026-ACT-049. Aucune alerte (ALE) identifiée.",
+      "source": "CERT-FR",
+      "date": "23/11/2026",
+      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1600/"
+    },
+    {
+      "category": "autres_outils",
+      "product": "CISA KEV — MONAI Label / N-able MailAssure (hors parc)",
+      "criticality": "info",
+      "impact": "L'agence américaine CISA signale deux failles déjà utilisées par des pirates, dans des logiciels que nous n'utilisons pas.",
+      "technical_detail": "CVE-2026-133968 MONAI Label (CVSS 9.8, path traversal → exécution de code, versions ≤ 0.8.5, corrigé en 0.8.6) ; CVE-2026-134624 N-able MailAssure / SpamExperts (CVSS 9.3, SSRF, builds < 20261121.1943, compte API à privilèges requis ; découverte lors d'un incident dans l'infrastructure hébergée N-able). Échéance agences US : 26/11/2026. Page CISA non lue directement ; contenu concordant sur 3 sources secondaires.",
+      "source": "CISA (via SecurityOnline, WindowsForum, Superpower Daily)",
+      "date": "23/11/2026",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/11/23/cisa-adds-two-known-exploited-vulnerabilities-catalog"
+    }
+  ]
+}

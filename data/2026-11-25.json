@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "date_key": "2026-11-25",
+  "page_date": "2026-11-25",
+  "items": [
+    {
+      "category": "cloud_m365",
+      "product": "Microsoft 365 Apps / Office LTSC",
+      "criticality": "important",
+      "impact": "Une faille dans Office peut permettre à un pirate d'exécuter un programme malveillant sur nos postes.",
+      "technical_detail": "CVE-2026-120787 — exécution de code arbitraire à distance. Concerne Microsoft 365 Apps for Enterprise (32/64 bits), Office LTSC 2021 < 16.0.14334.21048, Office LTSC 2024 < 16.0.17932.21140. Exploitation active non mentionnée par le CERT-FR. Avis Microsoft : msrc.microsoft.com/update-guide/vulnerability/CVE-2026-120787.",
+      "source": "CERT-FR CERTFR-2026-AVI-1604",
+      "date": "23/11/2026",
+      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1604"
+    },
+    {
+      "category": "autres_outils",
+      "product": "NAS Synology (DSM)",
+      "criticality": "important",
+      "impact": "Une faille grave sur les NAS Synology peut permettre à un pirate, sans mot de passe, de lire et modifier des fichiers ; la correction n'existe pas encore pour toutes les versions.",
+      "technical_detail": "CVE-2026-120382, CVSS 9.8 (CWE-88, service OAuth). Corrigé : DSM 7.4.1-90080 Update 2, DSM 7.3.2-86009 Update 6. Statut « Ongoing » : DSM 7.2.2, 7.2.1, 7.1, BeeStation OS 1.5. Contournement indiqué : arrêter le paquet « OAuth Service ». Pas d'exploitation confirmée publiquement (NASCompares, 25/11). Page éditeur non relue en version à jour aujourd'hui — détails via deux sources secondaires concordantes.",
+      "source": "Synology-SA-26:21 (relayé par ComputingForGeeks et NASCompares)",
+      "date": "19/11/2026 (rév. 20…",
+      "url": "https://www.synology.com/en-uk/security/advisory/Synology_SA_26_21"
+    },
+    {
+      "category": "autres_outils",
+      "product": "OpenSSL",
+      "criticality": "info",
+      "impact": "Des failles dans OpenSSL, une brique de chiffrement utilisée par beaucoup de logiciels, permettent de rendre un service inaccessible à distance.",
+      "technical_detail": "CVE-2026-107494, CVE-2026-121482, CVE-2026-84785, CVE-2026-84786 — déni de service à distance. Versions affectées : 1.1.1 < 1.1.1zk, 3.0.x < 3.0.24, 3.5.x < 3.5.10, 4.0.x < 4.0.4, 4.1.x < 4.1.1. Bulletin OpenSSL du 24/11/2026.",
+      "source": "CERT-FR CERTFR-2026-AVI-1613",
+      "date": "24/11/2026",
+      "url": "https://cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1613/"
+    },
+    {
+      "category": "autres_outils",
+      "product": "Google Chrome",
+      "criticality": "info",
+      "impact": "Une faille dans le navigateur Chrome peut permettre à un pirate d'exécuter du code sur le poste.",
+      "technical_detail": "CVE-2026-134401 — exécution de code à distance et contournement de politique de sécurité. Corrigé : Chrome 158.0.8127.88 (Windows/Linux), 158.0.8127.89 (Mac), Extended Stable 156.0.8078.114. Exploitation non mentionnée.",
+      "source": "CERT-FR CERTFR-2026-AVI-1608",
+      "date": "24/11/2026",
+      "url": "https://cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1608/"
+    },
+    {
+      "category": "autres_outils",
+      "product": "CISA KEV (hors parc)",
+      "criticality": "info",
+      "impact": "Trois failles déjà utilisées par des pirates ont été ajoutées à la liste officielle américaine ; aucun produit de notre parc n'est concerné.",
+      "technical_detail": "CVE-2026-131914 (bibliothèque ASP.NET Idunno.AntiCsrf ≤ 0.9.1 Beta, RCE, CVSS 9.3, pas de correctif), CVE-2026-132224 (Optimizely Web Experimentation, CVSS 7.1), CVE-2026-132165 (Drupal core, RCE via install.php). Échéance agences fédérales : 27/11. Page CISA non lisible directement : liste des CVE via le dépôt GitHub dgwhited/kev, détails ⚠️ NON CONFIRMÉ — source unique (ZeroHour / Help Net Security).",
+      "source": "CISA",
+      "date": "24/11/2026",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/11/24/cisa-adds-three-known-exploited-vulnerabilities-catalog"
+    }
+  ]
+}

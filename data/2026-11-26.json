@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "date_key": "2026-11-26",
+  "page_date": "2026-11-26",
+  "items": [
+    {
+      "category": "cloud_m365",
+      "product": "Microsoft Office / Microsoft 365 Apps",
+      "criticality": "important",
+      "impact": "Une faille dans la suite Office peut permettre à un pirate de lancer un programme malveillant sur nos postes ; une mise à jour d'Office corrige le problème.",
+      "technical_detail": "CERTFR-2026-AVI-1620 — bulletin Microsoft du 24/11/2026 — CVE-2026-112732, exécution de code arbitraire à distance. Affecte Microsoft 365 Apps for Enterprise (32/64 bits), Office LTSC 2021 < 16.0.14334.21048, Office LTSC 2024 < 16.0.17932.21140. Exploitation active non mentionnée.",
+      "source": "CERT-FR",
+      "date": "25/11/2026",
+      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1620"
+    },
+    {
+      "category": "autres_outils",
+      "product": "NAS Synology (DSM)",
+      "criticality": "important",
+      "impact": "Rappel : deux failles graves sur les NAS Synology ne sont toujours pas corrigées pour les anciennes versions de DSM ; il faut mettre à jour ou couper les fonctions concernées.",
+      "technical_detail": "SA-26:21 : CVE-2026-120382, CVSS 9.8 (API OAuth). SA-26:20 « NGINX2Root » : CVE-2026-123007, CVSS 8.1 (NGINX HTTP/2). Corrigé en DSM 7.4.1-90080-2 et 7.3.2-86009-6 ; DSM 7.2.2, 7.2.1, 7.1 et BeeStation OS 1.5 « Ongoing » (Synology recommande de passer en 7.3.2-86009-6). Contournements éditeur : désactiver le paquet OAuth Service ; désactiver HTTP/2 (Panneau de configuration > Réseau > Connectivité). L'index affiche une mise à jour au 26/11, mais l'historique de révision des deux avis n'indique aucun changement à cette date.",
+      "source": "Synology Security Advisory",
+      "date": "26/11/2026",
+      "url": "https://www.synology.com/en-global/security/advisory"
+    },
+    {
+      "category": "autres_outils",
+      "product": "Mozilla Firefox / Thunderbird",
+      "criticality": "info",
+      "impact": "De nombreuses failles dans Firefox et Thunderbird peuvent permettre de prendre le contrôle d'un poste ; une mise à jour est disponible.",
+      "technical_detail": "CERTFR-2026-AVI-1616 — avis Mozilla mfsa2026-131 à mfsa2026-135 (24/11/2026). Firefox < 161, Firefox ESR < 115.46 et < 153.8, Thunderbird < 161, Thunderbird ESR < 153.8. Risques : exécution de code arbitraire, élévation de privilèges, contournement de la politique de sécurité, atteinte à la confidentialité. Exploitation active non mentionnée.",
+      "source": "CERT-FR",
+      "date": "25/11/2026",
+      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1616"
+    },
+    {
+      "category": "autres_outils",
+      "product": "VMware (hors parc)",
+      "criticality": "info",
+      "impact": "Plusieurs failles dans les logiciels de virtualisation VMware (non utilisés chez nous) peuvent permettre de prendre le contrôle des serveurs concernés.",
+      "technical_detail": "CERTFR-2026-AVI-1622 — bulletin VMware 39626 (24/11/2026), 23 CVE (CVE-2026-123903 à CVE-2026-123926, sauf 123917). vCenter 8.0 < 8.0 U3k ; Cloud Foundation 5.x < 5.2.5, 9.0.x < 9.0.2.0300, 9.1.x < 9.1.2 ; vSphere Foundation 9.0.x/9.1.x ; Telco Cloud. Exploitation active non mentionnée.",
+      "source": "CERT-FR",
+      "date": "25/11/2026",
+      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1622"
+    },
+    {
+      "category": "reseau_securite",
+      "product": "Palo Alto Networks PAN-OS (hors parc)",
+      "criticality": "info",
+      "impact": "Une faille déjà utilisée par des pirates sur les firewalls Palo Alto (marque que nous n'utilisons pas) permet d'obtenir plus de droits sur l'équipement.",
+      "technical_detail": "CERTFR-2026-AVI-1621 — PAN-SA-2026-0015 (25/11/2026), élévation de privilèges, exploitation active signalée par l'éditeur. PAN-OS 10.2, 11.1, 11.2, 12.1, 12.2 (correctifs ex. 10.2.10-h45, 11.1.10-h38, 12.2.4-h3). L'avis CERT-FR cite CVE-2026-43600 dans le résumé et CVE-2026-46300 dans les références (incohérence à vérifier chez l'éditeur).",
+      "source": "CERT-FR",
+      "date": "25/11/2026",
+      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1621"
+    },
+    {
+      "category": "reseau_securite",
+      "product": "CISA KEV (hors parc)",
+      "criticality": "info",
+      "impact": "Dix failles déjà utilisées par des pirates ont été ajoutées à la liste américaine de référence ; aucune ne concerne les produits de notre parc.",
+      "technical_detail": "⚠️ NON CONFIRMÉ — source unique. Page CISA non consultable directement ; produits cités par des relais (WindowsForum, Threadlinqs) : Juniper Session Smart Conductor (CVE-2026-103406), Mitel, Danfoss, Xen Orchestra.",
+      "source": "CISA",
+      "date": "25/11/2026",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/11/25/cisa-adds-10-known-exploited-vulnerabilities-catalog"
+    }
+  ]
+}

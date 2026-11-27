@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "date_key": "2026-11-27",
+  "page_date": "2026-11-27",
+  "items": [
+    {
+      "category": "autres_outils",
+      "product": "1Password",
+      "criticality": "important",
+      "impact": "1Password a été piraté : des noms et adresses e-mail de clients ont été volés, mais pas les mots de passe ; il faut se méfier des faux e-mails « 1Password » dans les prochains jours.",
+      "technical_detail": "Compte GitHub d'un employé compromis (enquête ouverte le 19/11). Code source privé copié, accès CI/CD, code malveillant poussé sur des services backend. Données exfiltrées pour « un sous-ensemble » d'utilisateurs : noms, e-mails, identifiants compte/utilisateur, dates de création et de dernière connexion, clés publiques, paramètres SRP, jetons de certains e-mails d'invitation/provisionnement/récupération. Non accédés selon 1Password : contenu des coffres, clés de coffres, clés de récupération, apps et extensions. Aucune action requise sur les comptes ; codes d'invitation/récupération passés d…",
+      "source": "1Password (blog officiel) / Help Net Security",
+      "date": "25/11/2026 (officie…",
+      "url": "https://1password.com/blog/update-on-nov-2026-security-incident"
+    },
+    {
+      "category": "reseau_securite",
+      "product": "FortiGate",
+      "criticality": "important",
+      "impact": "Des pirates ont pris le contrôle de réseaux de navires en passant par des firewalls Fortinet non mis à jour ; cela confirme l'importance d'avoir nos FortiGate à jour.",
+      "technical_detail": "Jusqu'à 50 navires commerciaux touchés selon le Wall Street Journal, piste iranienne étudiée par les autorités US. Point d'entrée : FortiGate non corrigés. Failles citées par l'alerte conjointe US Coast Guard / FBI (début septembre 2026) : CVE-2026-24858 (contournement d'authentification via FortiCloud SSO, exploitée activement) et CVE-2025-25252 (rejeu de session SSL VPN via SAML). Versions FortiOS non précisées dans l'article ; alerte USCG non lue directement. Pas de nouvel avis FortiGuard le 26/11.",
+      "source": "IT-Connect (d'après WSJ / NPR)",
+      "date": "26/11/2026",
+      "url": "https://www.it-connect.tech/up-to-50-ships-hacked-through-fortigate-flaws-us-suspects-iran/"
+    },
+    {
+      "category": "sauvegarde",
+      "product": "Veeam (appliances Linux)",
+      "criticality": "important",
+      "impact": "Une faille permet de prendre le contrôle à distance des appliances Veeam sous Linux ; les serveurs Veeam installés sur Windows ne sont pas concernés.",
+      "technical_detail": "CERTFR-2026-AVI-1629 (26/11) d'après Veeam KB4976 « NGINX2ROOT » (publié 20/11, maj 25/11). CVE-2026-123007, -123633, -121810, -123634, -113425 (nginx, corruption mémoire, exécution de code à distance ; combinées à une faille noyau → root). Affectés : Veeam Software Appliance 13.1, Veeam Infrastructure Appliance 13.1, Plug-ins AWS/Google Cloud/Azure, Backup for Salesforce 3.2.1. Non affectés : VBR 13.1 et Enterprise Manager sous Windows. Correctif : paquet nginx-1.20.1-22.8.el9_6_ciq.3 via Veeam Updater (dispo depuis 25/11) ; en attendant, restreindre TCP 443 aux réseaux de confiance. Exploit…",
+      "source": "CERT-FR / Veeam KB4976",
+      "date": "26/11/2026",
+      "url": "https://cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1629/"
+    },
+    {
+      "category": "cloud_m365",
+      "product": "Microsoft 365",
+      "criticality": "info",
+      "impact": "Après la grande panne Microsoft 365 du 12–13 novembre, Microsoft annonce vouloir réparer les futures pannes mondiales en moins d'une heure.",
+      "technical_detail": "Plan interne « Code Red » de refonte de l'ingénierie et de la réponse aux incidents M365. Cause rapportée de la panne de 24 h (Exchange Online, Teams) : défaut de montée en charge introduit en juillet dans Windows, non détecté pendant des mois ; ni cyberattaque ni agents IA selon Microsoft. Objectif d'une heure sans échéance ni engagement contractuel. Source : Computerworld citant Reuters.",
+      "source": "Computerworld (d'après Reuters)",
+      "date": "26/11/2026",
+      "url": "https://www.computerworld.com/article/4253555/microsoft-sets-one-hour-recovery-goal-after-worst-ever-m365-outage.html"
+    },
+    {
+      "category": "autres_outils",
+      "product": "GitLab",
+      "criticality": "info",
+      "impact": "GitLab a publié des correctifs de sécurité ; à appliquer si une instance GitLab est utilisée.",
+      "technical_detail": "CERTFR-2026-AVI-1624 « Multiples vulnérabilités dans GitLab » — 26/11/2026. Détails (CVE, versions corrigées) sur l'avis CERT-FR / bulletin éditeur.",
+      "source": "CERT-FR",
+      "date": "26/11/2026",
+      "url": "https://cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1624/"
+    }
+  ]
+}
